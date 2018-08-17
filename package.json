@@ -1,0 +1,69 @@
+{
+  "name": "@lykmapipo/postman",
+  "version": "0.1.0",
+  "description": "collective notifications for nodejs",
+  "keywords": [
+    "lykmapipo",
+    "express",
+    "postman",
+    "sms",
+    "email",
+    "push"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test",
+    "dev": "BASE_PATH=./examples nodemon examples/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lykmapipo/postman.git"
+  },
+  "author": {
+    "name": "lykmapipo",
+    "email": "lallyelias87@gmail.com",
+    "url": "https://github.com/lykmapipo"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lykmapipo/postman/issues"
+  },
+  "homepage": "https://github.com/lykmapipo/postman",
+  "contributors": [
+    {
+      "name": "lykmapipo",
+      "github": "https://github.com/lykmapipo"
+    }
+  ],
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "grunt": "^1.0.3",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-mocha-test": "^0.13.3",
+    "jshint-stylish": "^2.2.1",
+    "kue": "^0.11.6",
+    "mocha": "^5.2.0",
+    "mongoose": "^5.2.8",
+    "nodemon": "^1.18.3",
+    "supertest": "^3.1.0"
+  },
+  "dependencies": {
+    "@benmaruchu/faker": "^4.2.1",
+    "@lykmapipo/env": "^0.1.0",
+    "@lykmapipo/express-common": "^0.7.0",
+    "async": "^2.6.1",
+    "country-data": "0.0.31",
+    "express-mquery": "^1.0.2",
+    "is-html": "^1.1.0",
+    "lodash": "^4.17.10",
+    "mongoose-rest-actions": "^0.15.5",
+    "object-hash": "^1.3.0",
+    "require-all": "^3.0.0",
+    "string-template": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=8.6.0",
+    "npm": ">=5.3.0"
+  }
+}
