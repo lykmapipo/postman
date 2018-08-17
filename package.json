@@ -59,6 +59,7 @@
     "lodash": "^4.17.10",
     "mongoose-rest-actions": "^0.15.5",
     "object-hash": "^1.3.0",
+    "phone": "^2.1.0",
     "require-all": "^3.0.0",
     "string-template": "^1.0.0"
   },

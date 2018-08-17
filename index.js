@@ -26,5 +26,9 @@ function postman() {
 postman.constants = require(path.join(libPath, 'core', 'constants'));
 
 
+/* export postman utils */
+postman.utils = require(path.join(libPath, 'core', 'utils'));
+
+
 /* export postman */
 exports = module.exports = postman;
