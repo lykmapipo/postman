@@ -2,69 +2,33 @@
 
 
 /* dependencies */
-const { worker, dispatcher, server } = require('@lykmapipo/postman')({
-  baseDir: __dirname
+const { worker, SMS, Email } = require('@lykmapipo/postman');
+
+
+/* queue: track job error */
+/* see: https://github.com/Automattic/kue#job-events*/
+worker.on('job failed', function (job, error) {
+  console.log(error);
+});
+
+
+/* queue: track job finish */
+/* see: https://github.com/Automattic/kue#job-events */
+worker.on('job complete', function (id, result) {
+  console.log(result);
 });
 
 
 /* start worker */
+/* NOTE!: highly adviced to use worker process */
 worker.start();
 
 
-/* start dispatcher */
-dispatcher.start();
+/* send sms via default transport */
+const sms = new SMS({ to: '255716898989', body: 'Hello' });
+const smsJob = sms.queue(); //sms.send(done);
 
 
-/* start http server */
-server.start();
-
-
-/* dispatch work */
-const job = dispatcher.send({
-  from: {
-    name: 'Bank Moon',
-    email: 'bank.moon@fake.com',
-    phone: '0715000000',
-    shortcode: 'SPORTS'
-  },
-  subject: {
-    en: 'Yatch Club Admission',
-    sw: 'Kusajiliwa Yatch Club'
-  },
-  to: [{ name: 'Juma John', email: 'juma.john@fake.com', phone: '0715111111' }],
-  to: [{ name: 'music' }, { name: 'deep house' }],
-  segments: ['music', 'deep house'], //topics
-  bcc: [{ name: 'Lucy Loo', email: 'lucy.loo@fake.com', phone: '0715222222' }],
-  cc: [{ name: 'John Damina', email: 'john.damian@fake.com', phone: '0715333333' }],
-  message: {
-    en: 'Hello {name}, Welcome to our club.',
-    sw: 'Mambo {name}, Karibu kwenye chama chetu.'
-  },
-  mime: 'text/html',
-  channels: ['email', 'sms'],
-  transports: [{ name: 'twilio', options: {} }, { name: 'sendgrid', options: {} }]
-});
-
-
-const job = dispatcher.send({
-  from: {
-    name: 'Bank Moon',
-    email: 'bank.moon@fake.com',
-    phone: '0715000000',
-    shortcode: 'SPORTS'
-  },
-  to: { name: 'Juma John', email: 'juma.john@fake.com', phone: '0715111111' },
-  title: 'Yatch Club Admission',
-  message: 'Mambo {name}, Karibu kweneye chama chetu'
-})
-
-
-/* track job */
-job.on('error', function (error) {
-
-});
-
-
-job.on('finish', function (job) {
-
-});
+/* send email via default transport */
+const email = new Email({ to: 'l@go.com', subject: 'Hello', body: 'Hello' });
+const emailJob = email.queue(); //email.send(done);

@@ -23,30 +23,27 @@ $ npm install --save mongoose kue @lykmapipo/postman
 
 ### Main Process
 ```js
-/* dependencies */
-const { http, Email, SMS, Push } = require('@lykmapipo/postman')({});
+const { worker, SMS, Email } = require('@lykmapipo/postman');
 
-/* send email */
-const email = new Email({});
-const emailJob = email.send();
+/* send sms via default transport */
+const sms = new SMS({ to: '255716898989', body: 'Hello' });
+const smsJob = sms.queue(); //sms.send(done);
 
-/* send sms */
-const sms = new SMS({});
-const smsJob = sms.send();
 
-/* send push notification */
-const push = new Push({});
-const pushJob = push.send();
-
-/* run http server */
-http.serve({});
+/* send email via default transport */
+const email = new Email({ to: 'l@go.com', subject: 'Hello', body: 'Hello' });
+const emailJob = email.queue(); //email.send(done);
 
 ```
 
 ### Worker Process(s)
 ```js
-const { worker } = require('@lykmapipo/postman')({});
-worker.process({});
+const { worker, SMS, Email } = require('@lykmapipo/postman');
+
+/* start worker */
+/* NOTE!: highly adviced to use worker process */
+worker.start();
+
 ```
 
 ## Testing
