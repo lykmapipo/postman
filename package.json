@@ -33,10 +33,12 @@
     "url": "https://github.com/lykmapipo/postman/issues"
   },
   "homepage": "https://github.com/lykmapipo/postman",
-  "contributors": [{
-    "name": "lykmapipo",
-    "github": "https://github.com/lykmapipo"
-  }],
+  "contributors": [
+    {
+      "name": "lykmapipo",
+      "github": "https://github.com/lykmapipo"
+    }
+  ],
   "devDependencies": {
     "@benmaruchu/faker": "^4.2.1",
     "chai": "^4.1.2",
@@ -54,7 +56,9 @@
   "dependencies": {
     "@lykmapipo/env": "^0.1.0",
     "@lykmapipo/express-common": "^0.7.0",
+    "@lykmapipo/tz-ega-sms": "^0.2.0",
     "async": "^2.6.1",
+    "bipsms": "^0.2.0",
     "country-data": "0.0.31",
     "express-mquery": "^1.0.2",
     "is-html": "^1.1.0",
