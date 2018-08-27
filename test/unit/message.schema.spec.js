@@ -129,4 +129,99 @@ describe('Message Schema', () => {
 
   });
 
+  //TODO to, cc, bcc
+
+  it('should have subject field', function () {
+
+    const subject = Message.schema.path('subject');
+
+    expect(subject).to.exist;
+    expect(subject).to.be.an.instanceof(Types.String);
+    expect(subject.instance).to.be.equal('String');
+    expect(subject).to.be.an('object');
+    expect(subject.options.type).to.be.a('function');
+    expect(subject.options.type.name).to.be.equal('String');
+    expect(subject.options.trim).to.be.true;
+    expect(subject.options.index).to.be.true;
+    expect(subject.options.searchable).to.be.true;
+    expect(subject.options.fake).to.exist;
+
+  });
+
+  it('should have body field', function () {
+
+    const body = Message.schema.path('body');
+
+    expect(body).to.exist;
+    expect(body).to.be.an.instanceof(Types.String);
+    expect(body.instance).to.be.equal('String');
+    expect(body).to.be.an('object');
+    expect(body.options.type).to.be.a('function');
+    expect(body.options.type.name).to.be.equal('String');
+    expect(body.options.trim).to.be.true;
+    expect(body.options.index).to.be.true;
+    expect(body.options.searchable).to.be.true;
+    expect(body.options.fake).to.exist;
+
+  });
+
+  it('should have sentAt field', function () {
+
+    const sentAt = Message.schema.path('sentAt');
+
+    expect(sentAt).to.exist;
+    expect(sentAt).to.be.an.instanceof(Types.Date);
+    expect(sentAt.instance).to.be.equal('Date');
+    expect(sentAt).to.be.an('object');
+    expect(sentAt.options.type).to.be.a('function');
+    expect(sentAt.options.type.name).to.be.equal('Date');
+    expect(sentAt.options.index).to.be.true;
+    expect(sentAt.options.fake).to.exist;
+
+  });
+
+  it('should have failedAt field', function () {
+
+    const failedAt = Message.schema.path('failedAt');
+
+    expect(failedAt).to.exist;
+    expect(failedAt).to.be.an.instanceof(Types.Date);
+    expect(failedAt.instance).to.be.equal('Date');
+    expect(failedAt).to.be.an('object');
+    expect(failedAt.options.type).to.be.a('function');
+    expect(failedAt.options.type.name).to.be.equal('Date');
+    expect(failedAt.options.index).to.be.true;
+    expect(failedAt.options.fake).to.exist;
+
+  });
+
+  it('should have deliveredAt field', function () {
+
+    const deliveredAt = Message.schema.path('deliveredAt');
+
+    expect(deliveredAt).to.exist;
+    expect(deliveredAt).to.be.an.instanceof(Types.Date);
+    expect(deliveredAt.instance).to.be.equal('Date');
+    expect(deliveredAt).to.be.an('object');
+    expect(deliveredAt.options.type).to.be.a('function');
+    expect(deliveredAt.options.type.name).to.be.equal('Date');
+    expect(deliveredAt.options.index).to.be.true;
+    expect(deliveredAt.options.fake).to.exist;
+
+  });
+
+  it('should have result field', function () {
+
+    const result = Message.schema.path('result');
+
+    expect(result).to.exist;
+    expect(result).to.be.an.instanceof(Types.Mixed);
+    expect(result.instance).to.be.equal('Mixed');
+    expect(result).to.be.an('object');
+    expect(result.options.type).to.be.a('function');
+    expect(result.options.type.name).to.be.equal('Mixed');
+    expect(result.options.fake).to.exist;
+
+  });
+
 });
