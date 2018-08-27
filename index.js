@@ -21,8 +21,8 @@ function postman() {
 }
 
 
-/* export postman constants */
-postman.constants = require(path.join(libPath, 'core', 'constants'));
+/* export postman message model */
+postman.Message = require(path.join(libPath, 'message.model'));
 
 
 /* export postman utils */
