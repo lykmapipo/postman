@@ -24,6 +24,11 @@ worker.on('job complete', function (id, result) {
 worker.start();
 
 
+/* requeue unsent */
+// SMS.requeue();
+// Email.requeue();
+
+
 /* send sms via default transport */
 const sms = new SMS({ to: '255716898989', body: 'Hello' });
 const smsJob = sms.queue(); //sms.send(done);
