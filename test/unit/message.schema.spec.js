@@ -129,7 +129,54 @@ describe('Message Schema', () => {
 
   });
 
-  //TODO to, cc, bcc
+  it('should have to field', function () {
+
+    const to = Message.schema.path('to');
+
+    expect(to).to.exist;
+    expect(to).to.be.an.instanceof(Types.Array);
+    expect(to.instance).to.be.equal('Array');
+    expect(to).to.be.an('object');
+    expect(to.options.type[0]).to.be.a('function');
+    expect(to.options.type[0].name).to.be.equal('String');
+    expect(to.options.required).to.be.true;
+    expect(to.options.index).to.be.true;
+    expect(to.options.searchable).to.be.true;
+    expect(to.options.fake).to.exist;
+
+  });
+
+  it('should have cc field', function () {
+
+    const cc = Message.schema.path('cc');
+
+    expect(cc).to.exist;
+    expect(cc).to.be.an.instanceof(Types.Array);
+    expect(cc.instance).to.be.equal('Array');
+    expect(cc).to.be.an('object');
+    expect(cc.options.type[0]).to.be.a('function');
+    expect(cc.options.type[0].name).to.be.equal('String');
+    expect(cc.options.index).to.be.true;
+    expect(cc.options.searchable).to.be.true;
+    expect(cc.options.fake).to.exist;
+
+  });
+
+  it('should have bcc field', function () {
+
+    const bcc = Message.schema.path('bcc');
+
+    expect(bcc).to.exist;
+    expect(bcc).to.be.an.instanceof(Types.Array);
+    expect(bcc.instance).to.be.equal('Array');
+    expect(bcc).to.be.an('object');
+    expect(bcc.options.type[0]).to.be.a('function');
+    expect(bcc.options.type[0].name).to.be.equal('String');
+    expect(bcc.options.index).to.be.true;
+    expect(bcc.options.searchable).to.be.true;
+    expect(bcc.options.fake).to.exist;
+
+  });
 
   it('should have subject field', function () {
 
@@ -223,5 +270,77 @@ describe('Message Schema', () => {
     expect(result.options.fake).to.exist;
 
   });
+
+  it('should have transport field', function () {
+
+    const transport = Message.schema.path('transport');
+
+    expect(transport).to.exist;
+    expect(transport).to.be.an.instanceof(Types.String);
+    expect(transport.instance).to.be.equal('String');
+    expect(transport).to.be.an('object');
+    expect(transport.options.type).to.be.a('function');
+    expect(transport.options.type.name).to.be.equal('String');
+    expect(transport.options.trim).to.be.true;
+    expect(transport.options).to.have.property('default');
+    expect(transport.options.searchable).to.be.true;
+    expect(transport.options.fake).to.exist;
+
+  });
+
+  it('should have priority field', function () {
+
+    const priority = Message.schema.path('priority');
+
+    expect(priority).to.exist;
+    expect(priority).to.be.an.instanceof(Types.String);
+    expect(priority.instance).to.be.equal('String');
+    expect(priority).to.be.an('object');
+    expect(priority.options.type).to.be.a('function');
+    expect(priority.options.type.name).to.be.equal('String');
+    expect(priority.options.enum).to.exist;
+    expect(priority.options.enum).to.be.eql(Message.PRIORITIES);
+    expect(priority.options.trim).to.be.true;
+    expect(priority.options.default).to.exist;
+    expect(priority.options.index).to.be.true;
+    expect(priority.options.searchable).to.be.true;
+    expect(priority.options.fake).to.exist;
+
+  });
+
+  it('should have hash field', function () {
+
+    const hash = Message.schema.path('hash');
+
+    expect(hash).to.exist;
+    expect(hash).to.be.an.instanceof(Types.String);
+    expect(hash.instance).to.be.equal('String');
+    expect(hash).to.be.an('object');
+    expect(hash.options.type).to.be.a('function');
+    expect(hash.options.type.name).to.be.equal('String');
+    expect(hash.options.trim).to.be.true;
+    expect(hash.options.required).to.be.true;
+    expect(hash.options.unique).to.be.true;
+    expect(hash.options.searchable).to.be.true;
+    expect(hash.options.fake).to.exist;
+
+  });
+
+  it('should have tags field', function () {
+
+    const tags = Message.schema.path('tags');
+
+    expect(tags).to.exist;
+    expect(tags).to.be.an.instanceof(Types.Array);
+    expect(tags.instance).to.be.equal('Array');
+    expect(tags).to.be.an('object');
+    expect(tags.options.type[0]).to.be.a('function');
+    expect(tags.options.type[0].name).to.be.equal('String');
+    expect(tags.options.index).to.be.true;
+    expect(tags.options.searchable).to.be.true;
+    expect(tags.options.fake).to.exist;
+
+  });
+
 
 });
