@@ -26,7 +26,7 @@ postman.Message = require(path.join(libPath, 'message.model'));
 
 
 /* export postman utils */
-postman.utils = require(path.join(libPath, 'core', 'utils'));
+postman.utils = require(path.join(libPath, 'utils'));
 
 
 /* export postman */

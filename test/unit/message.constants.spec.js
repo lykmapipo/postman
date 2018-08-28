@@ -7,7 +7,7 @@ const { expect } = require('chai');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
 
-describe('constants', () => {
+describe('Message Constants', () => {
 
   describe('schema options', () => {
 
