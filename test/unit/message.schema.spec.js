@@ -111,6 +111,23 @@ describe('Message Schema', () => {
 
   });
 
+  it('should have bulk field', function () {
+
+    const bulk = Message.schema.path('bulk');
+
+    expect(bulk).to.exist;
+    expect(bulk).to.be.an.instanceof(Types.String);
+    expect(bulk.instance).to.be.equal('String');
+    expect(bulk).to.be.an('object');
+    expect(bulk.options.type).to.be.a('function');
+    expect(bulk.options.type.name).to.be.equal('String');
+    expect(bulk.options.trim).to.be.true;
+    expect(bulk.options.index).to.be.true;
+    expect(bulk.options.searchable).to.be.true;
+    expect(bulk.options.fake).to.exist;
+
+  });
+
   it('should have sender field', function () {
 
     const sender = Message.schema.path('sender');
