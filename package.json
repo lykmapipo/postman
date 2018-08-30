@@ -50,7 +50,7 @@
     "kue": "^0.11.6",
     "mocha": "^5.2.0",
     "mongoose": "^5.2.10",
-    "nodemon": "^1.18.3",
+    "nodemon": "^1.18.4",
     "supertest": "^3.1.0"
   },
   "dependencies": {
@@ -58,7 +58,7 @@
     "@lykmapipo/express-common": "^0.9.1",
     "@lykmapipo/tz-ega-sms": "^0.4.0",
     "async": "^2.6.1",
-    "bipsms": "^0.2.0",
+    "bipsms": "^0.3.0",
     "country-data": "0.0.31",
     "express-mquery": "^1.0.2",
     "is-html": "^1.1.0",
