@@ -19,3 +19,4 @@ docs
 doc.html
 .travis.yml
 Gruntfile.js
+.env

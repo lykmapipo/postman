@@ -139,7 +139,6 @@ describe('Message Schema', () => {
     expect(sender.options.type).to.be.a('function');
     expect(sender.options.type.name).to.be.equal('String');
     expect(sender.options.trim).to.be.true;
-    expect(sender.options.lowercase).to.be.true;
     expect(sender.options.index).to.be.true;
     expect(sender.options.searchable).to.be.true;
     expect(sender.options.fake).to.exist;
