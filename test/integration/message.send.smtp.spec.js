@@ -7,7 +7,7 @@ const { expect } = require('chai');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
 
-describe('infobip transport', () => {
+describe('smtp transport', () => {
 
   before((done) => {
     Message.deleteMany(done);
@@ -23,7 +23,7 @@ describe('infobip transport', () => {
 
       const message =
         Message.fakeExcept('sentAt', 'failedAt', 'deliveredAt');
-      message.transport = 'infobip-sms';
+      message.transport = 'smtp';
 
       message.send((error, sent) => {
 
@@ -31,7 +31,7 @@ describe('infobip transport', () => {
         expect(error).to.not.exist;
         expect(sent).to.exist;
         expect(sent._id).to.exist;
-        expect(sent.transport).to.be.equal('infobip-sms');
+        expect(sent.transport).to.be.equal('smtp');
         expect(sent.sentAt).to.exist;
         expect(sent.deliveredAt).to.exist;
         expect(sent.failedAt).to.not.exist;
@@ -50,20 +50,20 @@ describe('infobip transport', () => {
 
   });
 
-  if (process.env.SMS_INFOBIP_TEST_RECEIVER) {
+  if (process.env.SMTP_TEST_RECEIVER) {
     describe('live', function () {
 
       before(() => {
         process.env.DEBUG = false;
       });
 
-      it('should be able to send message', (done) => {
+      it('should be able to send text message', (done) => {
 
         const message = new Message({
-          to: process.env.SMS_INFOBIP_TEST_RECEIVER,
-          body: 'Test SMS'
+          to: process.env.SMTP_TEST_RECEIVER,
+          body: 'Test Email'
         });
-        message.transport = 'infobip-sms';
+        message.transport = 'smtp';
 
         message.send((error, sent) => {
 
@@ -71,7 +71,36 @@ describe('infobip transport', () => {
           expect(error).to.not.exist;
           expect(sent).to.exist;
           expect(sent._id).to.exist;
-          expect(sent.transport).to.be.equal('infobip-sms');
+          expect(sent.transport).to.be.equal('smtp');
+          expect(sent.sentAt).to.exist;
+          expect(sent.deliveredAt).to.exist;
+          expect(sent.failedAt).to.not.exist;
+          expect(sent.result).to.exist;
+          expect(sent.result.success).to.exist;
+          expect(sent.result.success).to.be.true;
+          done(error, sent);
+
+        });
+
+      });
+
+      it('should be able to send html message', (done) => {
+
+        const message = new Message({
+          to: process.env.SMTP_TEST_RECEIVER,
+          body: '<b>Test Email<b>'
+        });
+        message.transport = 'smtp';
+
+        message.send((error, sent) => {
+
+          //assert results
+          expect(error).to.not.exist;
+          expect(sent).to.exist;
+          expect(sent._id).to.exist;
+          expect(sent.transport).to.be.equal('smtp');
+          expect(sent.mime).to.be.equal('text/html');
+          expect(sent.isHtml()).to.be.true;
           expect(sent.sentAt).to.exist;
           expect(sent.deliveredAt).to.exist;
           expect(sent.failedAt).to.not.exist;
