@@ -2,6 +2,37 @@
 
 > WIP
 
+## Install
+```sh
+$ npm install --save redis kue mongoose @lykmapipo/postman
+```
+
+## Usage
+```js
+const { Email, SMS } = require('@lykmapipo/postman');
+
+//send email
+const email = new Email({ to: 'hello@example.com', subject: 'Hello', body: 'Hello' });
+email.send(cb);
+
+//queue email
+const email = new Email({ to: 'hello@example.com', subject: 'Hello', body: 'Hello' });
+const sendEmailJob = email.queue();
+
+...
+
+//send sms
+const sms = new SMS({ to: '255714182838', body: 'Hello' });
+sms.send(cb);
+
+...
+
+//queue sms
+const sms = new SMS({ to: '255714182838', body: 'Hello' });
+const sendSMSJob = sms.queue();
+
+```
+
 ## Testing
 * Clone this repository
 
