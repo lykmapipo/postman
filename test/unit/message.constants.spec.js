@@ -56,7 +56,6 @@ describe('Message Constants', () => {
 
   });
 
-
   describe('mimes', function () {
 
     it('should have text/plain', () => {
@@ -86,7 +85,6 @@ describe('Message Constants', () => {
     });
 
   });
-
 
   describe('priorities', function () {
 

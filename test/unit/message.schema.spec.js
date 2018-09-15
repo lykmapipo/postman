@@ -355,7 +355,7 @@ describe('Message Schema', () => {
     expect(tags.options.index).to.be.true;
     expect(tags.options.searchable).to.be.true;
     expect(tags.options.fake).to.exist;
-
+    
   });
 
 

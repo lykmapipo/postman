@@ -16,7 +16,8 @@ function wipe(done) {
 
 //setup database
 before(function (done) {
-  mongoose.connect('mongodb://localhost/postman', done);
+  mongoose.connect('mongodb://localhost/postman', { useNewUrlParser: true },
+    done);
 });
 
 
