@@ -16,6 +16,12 @@ describe('postman', () => {
     expect(postman).to.be.a('function');
     expect(postman.name).to.be.equal('postman');
     expect(postman.length).to.be.equal(0);
+    expect(postman.Message).to.exist;
+    expect(postman.Email).to.exist;
+    expect(postman.SMS).to.exist;
+    expect(postman.worker).to.exist;
+    expect(postman.httpServer).to.exist;
+    expect(postman.utils).to.exist;
   });
 
   it('should expose Email factory', () => {
