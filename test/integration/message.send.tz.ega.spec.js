@@ -50,7 +50,7 @@ describe('tz ega transport', () => {
 
   });
 
-  if (process.env.SMS_EGA_TEST_RECEIVER) {
+  if (process.env.SMS_EGA_TZ_TEST_RECEIVER) {
     describe('live', function () {
 
       before(() => {
@@ -60,7 +60,7 @@ describe('tz ega transport', () => {
       it('should be able to send message', (done) => {
 
         const message = new Message({
-          to: process.env.SMS_EGA_TEST_RECEIVER,
+          to: process.env.SMS_EGA_TZ_TEST_RECEIVER,
           body: 'Test SMS'
         });
         message.transport = 'tz-ega-sms';
