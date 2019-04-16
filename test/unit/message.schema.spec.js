@@ -13,7 +13,7 @@ describe('Message Schema', () => {
 
   it('should have type field', function () {
 
-    const type = Message.schema.path('type');
+    const type = Message.path('type');
 
     expect(type).to.exist;
     expect(type).to.be.an.instanceof(Types.String);
@@ -33,7 +33,7 @@ describe('Message Schema', () => {
 
   it('should have mime field', function () {
 
-    const mime = Message.schema.path('mime');
+    const mime = Message.path('mime');
 
     expect(mime).to.exist;
     expect(mime).to.be.an.instanceof(Types.String);
@@ -53,7 +53,7 @@ describe('Message Schema', () => {
 
   it('should have direction field', function () {
 
-    const direction = Message.schema.path('direction');
+    const direction = Message.path('direction');
 
     expect(direction).to.exist;
     expect(direction).to.be.an.instanceof(Types.String);
@@ -73,7 +73,7 @@ describe('Message Schema', () => {
 
   it('should have state field', function () {
 
-    const state = Message.schema.path('state');
+    const state = Message.path('state');
 
     expect(state).to.exist;
     expect(state).to.be.an.instanceof(Types.String);
@@ -93,7 +93,7 @@ describe('Message Schema', () => {
 
   it('should have mode field', function () {
 
-    const mode = Message.schema.path('mode');
+    const mode = Message.path('mode');
 
     expect(mode).to.exist;
     expect(mode).to.be.an.instanceof(Types.String);
@@ -113,7 +113,7 @@ describe('Message Schema', () => {
 
   it('should have bulk field', function () {
 
-    const bulk = Message.schema.path('bulk');
+    const bulk = Message.path('bulk');
 
     expect(bulk).to.exist;
     expect(bulk).to.be.an.instanceof(Types.String);
@@ -130,7 +130,7 @@ describe('Message Schema', () => {
 
   it('should have sender field', function () {
 
-    const sender = Message.schema.path('sender');
+    const sender = Message.path('sender');
 
     expect(sender).to.exist;
     expect(sender).to.be.an.instanceof(Types.String);
@@ -147,7 +147,7 @@ describe('Message Schema', () => {
 
   it('should have to field', function () {
 
-    const to = Message.schema.path('to');
+    const to = Message.path('to');
 
     expect(to).to.exist;
     expect(to).to.be.an.instanceof(Types.Array);
@@ -164,7 +164,7 @@ describe('Message Schema', () => {
 
   it('should have cc field', function () {
 
-    const cc = Message.schema.path('cc');
+    const cc = Message.path('cc');
 
     expect(cc).to.exist;
     expect(cc).to.be.an.instanceof(Types.Array);
@@ -180,7 +180,7 @@ describe('Message Schema', () => {
 
   it('should have bcc field', function () {
 
-    const bcc = Message.schema.path('bcc');
+    const bcc = Message.path('bcc');
 
     expect(bcc).to.exist;
     expect(bcc).to.be.an.instanceof(Types.Array);
@@ -196,7 +196,7 @@ describe('Message Schema', () => {
 
   it('should have subject field', function () {
 
-    const subject = Message.schema.path('subject');
+    const subject = Message.path('subject');
 
     expect(subject).to.exist;
     expect(subject).to.be.an.instanceof(Types.String);
@@ -213,7 +213,7 @@ describe('Message Schema', () => {
 
   it('should have body field', function () {
 
-    const body = Message.schema.path('body');
+    const body = Message.path('body');
 
     expect(body).to.exist;
     expect(body).to.be.an.instanceof(Types.String);
@@ -230,7 +230,7 @@ describe('Message Schema', () => {
 
   it('should have sentAt field', function () {
 
-    const sentAt = Message.schema.path('sentAt');
+    const sentAt = Message.path('sentAt');
 
     expect(sentAt).to.exist;
     expect(sentAt).to.be.an.instanceof(Types.Date);
@@ -245,7 +245,7 @@ describe('Message Schema', () => {
 
   it('should have failedAt field', function () {
 
-    const failedAt = Message.schema.path('failedAt');
+    const failedAt = Message.path('failedAt');
 
     expect(failedAt).to.exist;
     expect(failedAt).to.be.an.instanceof(Types.Date);
@@ -260,7 +260,7 @@ describe('Message Schema', () => {
 
   it('should have deliveredAt field', function () {
 
-    const deliveredAt = Message.schema.path('deliveredAt');
+    const deliveredAt = Message.path('deliveredAt');
 
     expect(deliveredAt).to.exist;
     expect(deliveredAt).to.be.an.instanceof(Types.Date);
@@ -275,7 +275,7 @@ describe('Message Schema', () => {
 
   it('should have result field', function () {
 
-    const result = Message.schema.path('result');
+    const result = Message.path('result');
 
     expect(result).to.exist;
     expect(result).to.be.an.instanceof(Types.Mixed);
@@ -289,7 +289,7 @@ describe('Message Schema', () => {
 
   it('should have transport field', function () {
 
-    const transport = Message.schema.path('transport');
+    const transport = Message.path('transport');
 
     expect(transport).to.exist;
     expect(transport).to.be.an.instanceof(Types.String);
@@ -306,7 +306,7 @@ describe('Message Schema', () => {
 
   it('should have priority field', function () {
 
-    const priority = Message.schema.path('priority');
+    const priority = Message.path('priority');
 
     expect(priority).to.exist;
     expect(priority).to.be.an.instanceof(Types.String);
@@ -326,7 +326,7 @@ describe('Message Schema', () => {
 
   it('should have hash field', function () {
 
-    const hash = Message.schema.path('hash');
+    const hash = Message.path('hash');
 
     expect(hash).to.exist;
     expect(hash).to.be.an.instanceof(Types.String);
@@ -344,7 +344,7 @@ describe('Message Schema', () => {
 
   it('should have tags field', function () {
 
-    const tags = Message.schema.path('tags');
+    const tags = Message.path('tags');
 
     expect(tags).to.exist;
     expect(tags).to.be.an.instanceof(Types.Array);
@@ -354,7 +354,6 @@ describe('Message Schema', () => {
     expect(tags.options.type[0].name).to.be.equal('String');
     expect(tags.options.index).to.be.true;
     expect(tags.options.searchable).to.be.true;
-    expect(tags.options.fake).to.exist;
     
   });
 

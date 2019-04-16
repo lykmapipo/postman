@@ -2,28 +2,16 @@
 
 
 /* dependencies */
-const mongoose = require('mongoose');
+const { connect, clear, drop } = require('@lykmapipo/mongoose-test-helpers');
 
 
-function wipe(done) {
-  if (mongoose.connection && mongoose.connection.dropDatabase) {
-    mongoose.connection.dropDatabase(done);
-  } else {
-    done();
-  }
-}
+/* setup database */
+before((done) => connect(done));
 
 
-//setup database
-before(function (done) {
-  mongoose.connect('mongodb://localhost/postman', { useNewUrlParser: true },
-    done);
-});
+/* clear database */
+before((done) => clear(done));
 
 
-// clear database
-before(wipe);
-
-
-// clear database
-after(wipe);
+/* drop database */
+after((done) => drop(done));
