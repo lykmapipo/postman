@@ -9,7 +9,7 @@ const { worker } = require('mongoose-kue');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
 
-describe.only('infobip transport queue', () => {
+describe('infobip transport queue', () => {
 
   before(() => {
     process.env.DEBUG = true;
