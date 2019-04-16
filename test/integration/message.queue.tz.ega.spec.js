@@ -4,27 +4,22 @@
 /* dependencies */
 const path = require('path');
 const { expect } = require('chai');
+const { clear } = require('@lykmapipo/mongoose-test-helpers');
 const { worker } = require('mongoose-kue');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
 
-describe('tz ega transport queue', () => {
+describe.only('tz ega transport queue', () => {
 
   before(() => {
     process.env.DEBUG = true;
   });
 
-  before((done) => {
-    Message.deleteMany(done);
-  });
+  before(done => clear(done));
 
-  before((done) => {
-    worker.reset(done);
-  });
+  before(done => worker.reset(done));
 
-  before(() => {
-    worker.start({ types: Message.TYPES });
-  });
+  before(() => worker.start({ types: Message.TYPES }));
 
 
   it('should be able to queue message', (done) => {
@@ -63,13 +58,9 @@ describe('tz ega transport queue', () => {
 
   });
 
-  after((done) => {
-    worker.stop(done);
-  });
+  after(done => worker.stop(done));
 
-  after((done) => {
-    Message.deleteMany(done);
-  });
+  after(done => clear(done));
 
   after(() => {
     delete process.env.DEBUG;
