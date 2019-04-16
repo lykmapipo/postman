@@ -4,14 +4,13 @@
 /* dependencies */
 const path = require('path');
 const { expect } = require('chai');
+const { clear } = require('@lykmapipo/mongoose-test-helpers');
 const { Message } = require(path.join(__dirname, '..', '..'));
 let messages = [];
 
 describe('Message#unsent', () => {
 
-  before((done) => {
-    Message.deleteMany(done);
-  });
+  before(done => clear(done));
 
   before((done) => {
     const message =
@@ -62,9 +61,6 @@ describe('Message#unsent', () => {
 
   });
 
-
-  after((done) => {
-    Message.deleteMany(done);
-  });
+  after(done => clear(done));
 
 });
