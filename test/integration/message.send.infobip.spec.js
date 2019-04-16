@@ -8,7 +8,7 @@ const { clear } = require('@lykmapipo/mongoose-test-helpers');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
 
-describe.only('infobip transport', () => {
+describe('infobip transport', () => {
 
   before(done => clear(done));
 

@@ -4,14 +4,13 @@
 /* dependencies */
 const path = require('path');
 const { expect } = require('chai');
+const { clear } = require('@lykmapipo/mongoose-test-helpers');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
 
-describe('smtp transport', () => {
+describe.only('smtp transport', () => {
 
-  before((done) => {
-    Message.deleteMany(done);
-  });
+  before(done => clear(done));
 
   describe('debug', function () {
 
@@ -120,8 +119,6 @@ describe('smtp transport', () => {
     });
   }
 
-  after((done) => {
-    Message.deleteMany(done);
-  });
+  after(done => clear(done));
 
 });
