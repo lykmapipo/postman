@@ -9,7 +9,7 @@ const { worker } = require('mongoose-kue');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
 
-describe.only('echo transport queue', () => {
+describe('echo transport queue', () => {
 
   before(() => {
     process.env.DEBUG = true;
