@@ -9,7 +9,7 @@ const { worker } = require('mongoose-kue');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
 
-describe('tz ega transport queue', () => {
+describe.skip('tz ega transport queue', () => {
 
   before(() => {
     process.env.DEBUG = true;
