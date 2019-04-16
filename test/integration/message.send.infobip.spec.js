@@ -4,14 +4,13 @@
 /* dependencies */
 const path = require('path');
 const { expect } = require('chai');
+const { clear } = require('@lykmapipo/mongoose-test-helpers');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
 
-describe('infobip transport', () => {
+describe.only('infobip transport', () => {
 
-  before((done) => {
-    Message.deleteMany(done);
-  });
+  before(done => clear(done));
 
   describe('debug', function () {
 
@@ -91,8 +90,6 @@ describe('infobip transport', () => {
     });
   }
 
-  after((done) => {
-    Message.deleteMany(done);
-  });
+  after(done => clear(done));
 
 });
