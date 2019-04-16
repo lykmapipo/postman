@@ -4,7 +4,7 @@
 /* dependencies */
 const path = require('path');
 const _ = require('lodash');
-const env = require('@lykmapipo/env');
+const { getString } = require('@lykmapipo/env');
 const kue = require('kue');
 const { worker } = require('mongoose-kue');
 const libPath = path.join(__dirname, 'lib');
@@ -13,8 +13,8 @@ const Message = require(path.join(libPath, 'message.model'));
 
 /* constants */
 const { TYPE_EMAIL, TYPE_SMS } = Message;
-const DEFAULT_SMTP_TRANSPORT_NAME = env('DEFAULT_SMTP_TRANSPORT_NAME');
-const DEFAULT_SMS_TRANSPORT_NAME = env('DEFAULT_SMS_TRANSPORT_NAME');
+const DEFAULT_SMTP_TRANSPORT_NAME = getString('DEFAULT_SMTP_TRANSPORT_NAME');
+const DEFAULT_SMS_TRANSPORT_NAME = getString('DEFAULT_SMS_TRANSPORT_NAME');
 
 
 /**
