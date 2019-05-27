@@ -8,7 +8,7 @@ const { clear } = require('@lykmapipo/mongoose-test-helpers');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
 
-describe('infobip transport', () => {
+describe('fcm transport', () => {
 
   before(done => clear(done));
 
@@ -22,7 +22,7 @@ describe('infobip transport', () => {
 
       const message =
         Message.fakeExcept('sentAt', 'failedAt', 'deliveredAt');
-      message.transport = 'infobip-sms';
+      message.transport = 'fcm-push';
 
       message.send((error, sent) => {
 
@@ -30,7 +30,7 @@ describe('infobip transport', () => {
         expect(error).to.not.exist;
         expect(sent).to.exist;
         expect(sent._id).to.exist;
-        expect(sent.transport).to.be.equal('infobip-sms');
+        expect(sent.transport).to.be.equal('fcm-push');
         expect(sent.sentAt).to.exist;
         expect(sent.deliveredAt).to.exist;
         expect(sent.failedAt).to.not.exist;
@@ -49,7 +49,7 @@ describe('infobip transport', () => {
 
   });
 
-  if (process.env.SMS_INFOBIP_TEST_RECEIVER) {
+  if (process.env.PUSH_FCM_TEST_REGISTRATION_TOKEN) {
     describe('live', function () {
 
       before(() => {
@@ -59,10 +59,10 @@ describe('infobip transport', () => {
       it('should be able to send message', (done) => {
 
         const message = new Message({
-          to: process.env.SMS_INFOBIP_TEST_RECEIVER,
-          body: 'Test SMS'
+          to: process.env.PUSH_FCM_TEST_REGISTRATION_TOKEN,
+          body: 'Test Push'
         });
-        message.transport = 'infobip-sms';
+        message.transport = 'fcm-push';
 
         message.send((error, sent) => {
 
@@ -70,7 +70,7 @@ describe('infobip transport', () => {
           expect(error).to.not.exist;
           expect(sent).to.exist;
           expect(sent._id).to.exist;
-          expect(sent.transport).to.be.equal('infobip-sms');
+          expect(sent.transport).to.be.equal('fcm-push');
           expect(sent.sentAt).to.exist;
           expect(sent.deliveredAt).to.exist;
           expect(sent.failedAt).to.not.exist;
