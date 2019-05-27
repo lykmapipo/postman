@@ -273,6 +273,21 @@ describe('Message Schema', () => {
 
   });
 
+  it('should have readAt field', function () {
+
+    const readAt = Message.path('readAt');
+
+    expect(readAt).to.exist;
+    expect(readAt).to.be.an.instanceof(Types.Date);
+    expect(readAt.instance).to.be.equal('Date');
+    expect(readAt).to.be.an('object');
+    expect(readAt.options.type).to.be.a('function');
+    expect(readAt.options.type.name).to.be.equal('Date');
+    expect(readAt.options.index).to.be.true;
+    expect(readAt.options.fake).to.exist;
+
+  });
+
   it('should have result field', function () {
 
     const result = Message.path('result');
@@ -354,8 +369,21 @@ describe('Message Schema', () => {
     expect(tags.options.type[0].name).to.be.equal('String');
     expect(tags.options.index).to.be.true;
     expect(tags.options.searchable).to.be.true;
-    
+
   });
 
+  it('should have options field', function () {
+
+    const options = Message.path('options');
+
+    expect(options).to.exist;
+    expect(options).to.be.an.instanceof(Types.Mixed);
+    expect(options.instance).to.be.equal('Mixed');
+    expect(options).to.be.an('object');
+    expect(options.options.type).to.be.a('function');
+    expect(options.options.type.name).to.be.equal('Mixed');
+    expect(options.options.fake).to.exist;
+
+  });
 
 });
