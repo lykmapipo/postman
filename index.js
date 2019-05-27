@@ -12,9 +12,10 @@ const Message = require(path.join(libPath, 'message.model'));
 
 
 /* constants */
-const { TYPE_EMAIL, TYPE_SMS } = Message;
+const { TYPE_EMAIL, TYPE_SMS, TYPE_PUSH } = Message;
 const DEFAULT_SMTP_TRANSPORT_NAME = getString('DEFAULT_SMTP_TRANSPORT_NAME');
 const DEFAULT_SMS_TRANSPORT_NAME = getString('DEFAULT_SMS_TRANSPORT_NAME');
+const DEFAULT_PUSH_TRANSPORT_NAME = getString('DEFAULT_PUSH_TRANSPORT_NAME');
 
 
 /**
@@ -48,6 +49,14 @@ postman.Email = function Email(payload) {
 postman.SMS = function SMS(payload) {
   const _payload =
     _.merge({}, { transport: DEFAULT_SMS_TRANSPORT_NAME }, payload, { type: TYPE_SMS });
+  return new Message(_payload);
+};
+
+
+/* export postman push message factory */
+postman.Push = function Push(payload) {
+  const _payload =
+    _.merge({}, { transport: DEFAULT_PUSH_TRANSPORT_NAME }, payload, { type: TYPE_PUSH });
   return new Message(_payload);
 };
 
