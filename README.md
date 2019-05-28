@@ -9,7 +9,7 @@ $ npm install --save redis kue mongoose @lykmapipo/postman
 
 ## Usage
 ```js
-const { Email, SMS } = require('@lykmapipo/postman');
+const { Email, SMS, Push } = require('@lykmapipo/postman');
 
 //send email
 const email = new Email({ to: 'hello@example.com', subject: 'Hello', body: 'Hello' });
@@ -30,6 +30,18 @@ sms.send(cb);
 //queue sms
 const sms = new SMS({ to: '255714182838', body: 'Hello' });
 const sendSMSJob = sms.queue();
+
+...
+
+//send push
+const push = new Push({ to: 'f_T6rJL43xp:zBDA9obFwy24YR...', body: 'Hello' });
+push.send(cb);
+
+...
+
+//queue push
+const push = new Push({ to: 'f_T6rJL43xp:zBDA9obFwy24YR...', body: 'Hello' });
+const sendPushJob = push.queue();
 
 ```
 
@@ -76,6 +88,9 @@ SMTP_SECURE=
 SMTP_FROM=
 SMTP_TEST_RECEIVER=
 
+# GOOGLE FCM(GCM) TRANSPORT
+PUSH_FCM_API_KEY=
+PUSH_FCM_TEST_REGISTRATION_TOKEN=
 ```
 
 ## Testing
