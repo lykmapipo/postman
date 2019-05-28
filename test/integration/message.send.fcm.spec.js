@@ -5,7 +5,7 @@
 const path = require('path');
 const { expect } = require('chai');
 const { clear } = require('@lykmapipo/mongoose-test-helpers');
-const { Message } = require(path.join(__dirname, '..', '..'));
+const { Message, Push } = require(path.join(__dirname, '..', '..'));
 
 
 describe('fcm transport', () => {
@@ -58,9 +58,13 @@ describe('fcm transport', () => {
 
       it('should be able to send message', (done) => {
 
-        const message = new Message({
+        const message = new Push({
           to: process.env.PUSH_FCM_TEST_REGISTRATION_TOKEN,
-          body: 'Test Push'
+          subject: 'Test',
+          body: 'Receive Push Notification',
+          options: {
+            data: { level: 1 }
+          }
         });
         message.transport = 'fcm-push';
 
