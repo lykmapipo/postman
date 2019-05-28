@@ -1,3 +1,30 @@
+#### 0.6.0 (2019-05-28)
+
+##### Chores
+
+* **ci:**  add redis on .travis.yml ([9404c48c](https://github.com/lykmapipo/postman/commit/9404c48caf66c816253105cf497f9ba7113ad724))
+* **deps:**
+  *  force latest version & audit fix ([5cdfce81](https://github.com/lykmapipo/postman/commit/5cdfce81da5062a48d4750cdaba558f95a35ad30))
+  *  add push notification dependency ([63105567](https://github.com/lykmapipo/postman/commit/63105567201fc3a4c8662df61f91c855e70b6cc2))
+
+##### Documentation Changes
+
+*  fix typos and remove year from license ([0e35a66c](https://github.com/lykmapipo/postman/commit/0e35a66c5f17990229bc201390ecdc1e5c57c533))
+*  add push usage docs ([8a990f7b](https://github.com/lykmapipo/postman/commit/8a990f7b75d2cb1f66855c1500360ded0976587b))
+
+##### New Features
+
+*  expose Push message factory ([649e5f48](https://github.com/lykmapipo/postman/commit/649e5f48879dec628eb31d3d4d984c1303d44736))
+*  load fcm push transport ([24499a7f](https://github.com/lykmapipo/postman/commit/24499a7f1d642b599def4b8e1e9fb63ab7128ea5))
+*  add message readAt and options ([de8ed1c0](https://github.com/lykmapipo/postman/commit/de8ed1c0d51469fc5b78fe73cf5ba84cc4613f3d))
+* **push:**  initial fcm transport implementation ([d030f324](https://github.com/lykmapipo/postman/commit/d030f324d48c9ceb8ebc236375adb56ef62aea77))
+
+##### Tests
+
+*  skip fcm queue integration test ([2fb7a7c5](https://github.com/lykmapipo/postman/commit/2fb7a7c5e065712e42b920d214ca188d0e3ebbc9))
+*  fix and improve fcm push transport send specs ([dcefc1e1](https://github.com/lykmapipo/postman/commit/dcefc1e14adb902e793233de137a605de7c01df7))
+*  add fcm send specs ([784f46b4](https://github.com/lykmapipo/postman/commit/784f46b44fc31aba7e213bb826727765e21437a8))
+
 #### 0.5.5 (2019-05-21)
 
 ##### Chores
