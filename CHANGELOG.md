@@ -1,3 +1,13 @@
+#### 0.8.0 (2019-05-29)
+
+##### Chores
+
+* **deps:**  force latest version & audit fix ([3b069697](https://github.com/lykmapipo/postman/commit/3b069697d84e787cb877cc58e6e52c219c015d83))
+
+##### New Features
+
+*  expose secured kue http ui ([32f85250](https://github.com/lykmapipo/postman/commit/32f852501ecc890f0338d44aa5e251655e1f784e))
+
 #### 0.7.0 (2019-05-29)
 
 ##### Chores
