@@ -1,3 +1,15 @@
+#### 0.7.0 (2019-05-29)
+
+##### Chores
+
+* **deps:**
+  *  force latest versions ([c9ab2912](https://github.com/lykmapipo/postman/commit/c9ab291242cb23985ea6f3618a5b51c2faf081e8))
+  *  force latest version & audit fix ([c66e354e](https://github.com/lykmapipo/postman/commit/c66e354e4f0d8e38d652545271cae4ea970396f9))
+
+##### Tests
+
+*  refactor queue specs to work ([e6ba43c1](https://github.com/lykmapipo/postman/commit/e6ba43c1ad328704a762667891fd9ae674a62a9e))
+
 #### 0.6.0 (2019-05-28)
 
 ##### Chores
