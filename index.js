@@ -6,6 +6,7 @@ const path = require('path');
 const _ = require('lodash');
 const { getString } = require('@lykmapipo/env');
 const kue = require('kue');
+const { listen } = require('@lykmapipo/kue-common');
 const { worker } = require('mongoose-kue');
 const libPath = path.join(__dirname, 'lib');
 const Message = require(path.join(libPath, 'message.model'));
@@ -71,6 +72,10 @@ postman.worker = worker;
 
 /* export postman http server */
 postman.httpServer = kue.app;
+
+
+/* export http server listen */
+postman.listen = listen;
 
 
 /* export postman */
