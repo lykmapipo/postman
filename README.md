@@ -1,6 +1,6 @@
-# postman
+# postman(WIP)
 
-> WIP
+collective notifications for nodejs.
 
 ## Install
 ```sh
