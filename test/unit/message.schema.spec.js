@@ -228,6 +228,21 @@ describe('Message Schema', () => {
 
   });
 
+  it('should have queuedAt field', function () {
+
+    const queuedAt = Message.path('queuedAt');
+
+    expect(queuedAt).to.exist;
+    expect(queuedAt).to.be.an.instanceof(Types.Date);
+    expect(queuedAt.instance).to.be.equal('Date');
+    expect(queuedAt).to.be.an('object');
+    expect(queuedAt.options.type).to.be.a('function');
+    expect(queuedAt.options.type.name).to.be.equal('Date');
+    expect(queuedAt.options.index).to.be.true;
+    expect(queuedAt.options.fake).to.exist;
+
+  });
+
   it('should have sentAt field', function () {
 
     const sentAt = Message.path('sentAt');
