@@ -107,4 +107,14 @@ describe('Campaign Schema', () => {
     expect(statistics.options.default).to.exist;
     expect(statistics.options.fake).to.exist;
   });
+
+  it('should have metadata field', () => {
+    const metadata = Campaign.path('metadata');
+
+    expect(metadata).to.exist;
+    expect(metadata).to.be.an.instanceof(SchemaTypes.Mixed);
+    expect(metadata.instance).to.be.equal('Mixed');
+    expect(metadata.options.default).to.exist;
+    expect(metadata.options.fake).to.exist;
+  });
 });
