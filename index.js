@@ -10,6 +10,7 @@ const { listen } = require('@lykmapipo/kue-common');
 const { worker } = require('mongoose-kue');
 const libPath = path.join(__dirname, 'lib');
 const Message = require(path.join(libPath, 'message.model'));
+const Campaign = require(path.join(libPath, 'campaign.model'));
 
 
 /* constants */
@@ -32,6 +33,9 @@ const DEFAULT_PUSH_TRANSPORT_NAME = getString('DEFAULT_PUSH_TRANSPORT_NAME');
 function postman() {
 
 }
+
+/* export postman campaign model */
+postman.Campaign = Campaign;
 
 
 /* export postman message model */
@@ -79,4 +83,4 @@ postman.listen = listen;
 
 
 /* export postman */
-exports = module.exports = postman;
+module.exports = exports = postman;
