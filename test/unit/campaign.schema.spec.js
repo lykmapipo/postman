@@ -42,6 +42,13 @@ describe('Campaign Schema', () => {
     expect(title.options.fake).to.exist;
   });
 
+  it('should have sender field', () => {
+    const sender = Campaign.path('sender');
+
+    expect(sender).to.exist;
+    expect(sender.instance).to.be.equal('Embedded');
+  });
+
   it('should have subject field', () => {
     const subject = Campaign.path('subject');
 
