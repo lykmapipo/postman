@@ -39,7 +39,7 @@ describe('postman', () => {
     //assert
     expect(email).to.exist;
     expect(email.type).to.be.equal('EMAIL');
-    expect(email.transport).to.be.equal('smtp');
+    // expect(email.transport).to.be.equal('smtp');
     expect(email.to).to.be.eql([payload.to]);
 
   });
