@@ -9,6 +9,7 @@ collective notifications for nodejs.
 
 - [nodejs v8.11.1+](https://nodejs.org)
 - [npm v5.6.0+](https://www.npmjs.com/)
+- [Redis 4.0+](https://redis.io/)
 - [MongoDB v3.4.10+](https://www.mongodb.com/)
 - [mongoose v5.2.5+](https://github.com/Automattic/mongoose)
 
