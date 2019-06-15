@@ -71,4 +71,20 @@ describe('Campaign Schema', () => {
     expect(message.options.searchable).to.be.true;
     expect(message.options.fake).to.exist;
   });
+
+  it('should have channels field', () => {
+    const channels = Campaign.path('channels');
+
+    expect(channels).to.exist;
+    expect(channels).to.be.an.instanceof(SchemaTypes.Array);
+    expect(channels.instance).to.be.equal('Array');
+    expect(channels).to.be.an('object');
+    expect(channels.options.enum).to.exist;
+    expect(channels.options.enum).to.be.eql(Campaign.CHANNELS);
+    expect(channels.options.default).to.exist;
+    expect(channels.options.index).to.be.true;
+    expect(channels.options.searchable).to.be.true;
+    expect(channels.options.taggable).to.be.true;
+    expect(channels.options.fake).to.exist;
+  });
 });
