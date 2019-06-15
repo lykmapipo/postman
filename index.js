@@ -2,15 +2,14 @@
 
 
 /* dependencies */
-const path = require('path');
 const _ = require('lodash');
 const { getString } = require('@lykmapipo/env');
 const kue = require('kue');
 const { listen } = require('@lykmapipo/kue-common');
 const { worker } = require('mongoose-kue');
-const libPath = path.join(__dirname, 'lib');
-const Message = require(path.join(libPath, 'message.model'));
-const Campaign = require(path.join(libPath, 'campaign.model'));
+const Message = require('./lib/message.model');
+const Campaign = require('./lib/campaign.model');
+const common = require('./lib/common');
 
 
 /* constants */
@@ -67,7 +66,7 @@ postman.Push = function Push(payload) {
 
 
 /* export postman utils */
-postman.utils = require(path.join(libPath, 'utils'));
+postman.utils = require('./lib/utils');
 
 
 /* export postman worker */
@@ -80,6 +79,12 @@ postman.httpServer = kue.app;
 
 /* export http server listen */
 postman.listen = listen;
+
+
+/* export common constants */
+_.forEach(common, (value, key) => {
+  postman[key] = value;
+});
 
 
 /* export postman */
