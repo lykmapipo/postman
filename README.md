@@ -1,6 +1,16 @@
 # postman(WIP)
 
+[![Build Status](https://travis-ci.org/lykmapipo/postman.svg?branch=master)](https://travis-ci.org/lykmapipo/postman)
+[![Dependencies Status](https://david-dm.org/lykmapipo/postman/status.svg?style=flat-square)](https://david-dm.org/lykmapipo/postman)
+
 collective notifications for nodejs.
+
+## Requirements
+
+- [nodejs v8.11.1+](https://nodejs.org)
+- [npm v5.6.0+](https://www.npmjs.com/)
+- [MongoDB v3.4.10+](https://www.mongodb.com/)
+- [mongoose v5.2.5+](https://github.com/Automattic/mongoose)
 
 ## Install
 ```sh
@@ -45,7 +55,7 @@ const sendPushJob = push.queue();
 
 ```
 
-## Configuration
+## Environment
 In project root add `.env` file below.
 
 ```sh
