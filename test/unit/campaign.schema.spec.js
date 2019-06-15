@@ -97,4 +97,14 @@ describe('Campaign Schema', () => {
     expect(criteria.options.default).to.exist;
     expect(criteria.options.fake).to.exist;
   });
+
+  it('should have statistics field', () => {
+    const statistics = Campaign.path('statistics');
+
+    expect(statistics).to.exist;
+    expect(statistics).to.be.an.instanceof(SchemaTypes.Mixed);
+    expect(statistics.instance).to.be.equal('Mixed');
+    expect(statistics.options.default).to.exist;
+    expect(statistics.options.fake).to.exist;
+  });
 });
