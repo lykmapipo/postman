@@ -72,6 +72,21 @@ describe('Campaign Schema', () => {
     expect(message.options.fake).to.exist;
   });
 
+  it('should have audiences field', () => {
+    const audiences = Campaign.path('audiences');
+
+    expect(audiences).to.exist;
+    expect(audiences).to.be.an.instanceof(SchemaTypes.Array);
+    expect(audiences.instance).to.be.equal('Array');
+    expect(audiences).to.be.an('object');
+    expect(audiences.options.enum).to.exist;
+    expect(audiences.options.enum).to.be.eql(Campaign.AUDIENCES);
+    expect(audiences.options.index).to.be.true;
+    expect(audiences.options.searchable).to.be.true;
+    expect(audiences.options.taggable).to.be.true;
+    expect(audiences.options.fake).to.exist;
+  });
+
   it('should have channels field', () => {
     const channels = Campaign.path('channels');
 
