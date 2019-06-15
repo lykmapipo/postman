@@ -27,7 +27,22 @@ describe('Campaign Schema', () => {
     expect(form.options.fake).to.exist;
   });
 
-  it('should have subject field', function () {
+  it('should have title field', () => {
+    const title = Campaign.path('title');
+
+    expect(title).to.exist;
+    expect(title).to.be.an.instanceof(SchemaTypes.String);
+    expect(title.instance).to.be.equal('String');
+    expect(title).to.be.an('object');
+    expect(title.options.type).to.be.a('function');
+    expect(title.options.type.name).to.be.equal('String');
+    expect(title.options.trim).to.be.true;
+    expect(title.options.index).to.be.true;
+    expect(title.options.searchable).to.be.true;
+    expect(title.options.fake).to.exist;
+  });
+
+  it('should have subject field', () => {
     const subject = Campaign.path('subject');
 
     expect(subject).to.exist;
@@ -42,7 +57,7 @@ describe('Campaign Schema', () => {
     expect(subject.options.fake).to.exist;
   });
 
-  it('should have message field', function () {
+  it('should have message field', () => {
     const message = Campaign.path('message');
 
     expect(message).to.exist;
