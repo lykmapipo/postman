@@ -87,4 +87,14 @@ describe('Campaign Schema', () => {
     expect(channels.options.taggable).to.be.true;
     expect(channels.options.fake).to.exist;
   });
+
+  it('should have criteria field', () => {
+    const criteria = Campaign.path('criteria');
+
+    expect(criteria).to.exist;
+    expect(criteria).to.be.an.instanceof(SchemaTypes.Mixed);
+    expect(criteria.instance).to.be.equal('Mixed');
+    expect(criteria.options.default).to.exist;
+    expect(criteria.options.fake).to.exist;
+  });
 });
