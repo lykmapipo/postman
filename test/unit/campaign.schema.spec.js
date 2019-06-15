@@ -49,6 +49,13 @@ describe('Campaign Schema', () => {
     expect(sender.instance).to.be.equal('Embedded');
   });
 
+  it('should have to field', () => {
+    const to = Campaign.path('to');
+
+    expect(to).to.exist;
+    expect(to.instance).to.be.equal('Array');
+  });
+
   it('should have subject field', () => {
     const subject = Campaign.path('subject');
 
