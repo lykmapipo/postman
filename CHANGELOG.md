@@ -1,3 +1,53 @@
+#### 0.9.0 (2019-06-16)
+
+##### Chores
+
+* **deps:**
+  *  force latest version & audit fix ([b8bf22a7](https://github.com/lykmapipo/postman/commit/b8bf22a7d375fd384b9cd9ddf45b1848f4cc6855))
+  *  force latest version & audit fix ([d60e1c46](https://github.com/lykmapipo/postman/commit/d60e1c46d9a98d4db27758db7b6d2720a4f55d20))
+  *  add test helpers & force latest versions ([6cf3b336](https://github.com/lykmapipo/postman/commit/6cf3b336f86fa69a50723b2bba69dc5244ce7f6e))
+* **ci:**  use latest nodejs version ([86ec043b](https://github.com/lykmapipo/postman/commit/86ec043bf8c512e61964b17f55ab43f7a614ce35))
+
+##### Documentation Changes
+
+*  add redis to requirements ([0860fb2e](https://github.com/lykmapipo/postman/commit/0860fb2ef61a81272c52a4961f69144acebd10d2))
+*  add build & dependencies status badges ([1dab89e0](https://github.com/lykmapipo/postman/commit/1dab89e0dbabfbe9c731bdca58226ad5b6cd4274))
+*  update usage docs ([fc9604d9](https://github.com/lykmapipo/postman/commit/fc9604d9ac513f5ce0d503aab2a6eed9fcd62ca9))
+
+##### New Features
+
+*  add campaign http router ([65a0d3cc](https://github.com/lykmapipo/postman/commit/65a0d3cc0ef70f84d4e1fe7493b67416bec42f0d))
+*  add campaign http router ([236f23dc](https://github.com/lykmapipo/postman/commit/236f23dccdf638126701e484b3c1150fceb72411))
+*  diasable patch and put on messages http router ([5f3ebd06](https://github.com/lykmapipo/postman/commit/5f3ebd06ae886f2b31af2f14f06c87dfd202ae98))
+*  force E.164 format on phone numbers ([984a0d37](https://github.com/lykmapipo/postman/commit/984a0d372af67243096cd89d29bf744002ed4073))
+*  implement initial message router ([ebc7cea9](https://github.com/lykmapipo/postman/commit/ebc7cea9ae4d6706657c7fb6b9542c6ab44b4c0c))
+*  add list of recipirnts to campaign ([71debab4](https://github.com/lykmapipo/postman/commit/71debab43a8ae528cd3209c98996e80bb3f5c73c))
+*  add campaign sender ([92d01f4b](https://github.com/lykmapipo/postman/commit/92d01f4bac2397eb0f749f7e7841d74e4f7a37cf))
+*  add Contact sub schema ([3bc9f1c1](https://github.com/lykmapipo/postman/commit/3bc9f1c179df9b1bb97aa88110f3f3ffcf517ca3))
+*  expose common constants ([c63f3f54](https://github.com/lykmapipo/postman/commit/c63f3f548ec7708186809c5bd6a4794ec12d1ebe))
+*  add campaign audiendences ([5c15dae7](https://github.com/lykmapipo/postman/commit/5c15dae70008e770c86d8314b346ca7934337150))
+*  merge message forms & audiences from environment ([c9683ada](https://github.com/lykmapipo/postman/commit/c9683ada3b4a2fa7c3a6ec5f121aac97bec86a7c))
+*  add campaign metadata ([211b9ad0](https://github.com/lykmapipo/postman/commit/211b9ad0c9528293e0d611a304578398356c8ecb))
+*  add campaign statistics ([c666b568](https://github.com/lykmapipo/postman/commit/c666b568f889274bf24ac2a745c8e8bb80418bb5))
+*  add campaign criteria ([db43c81c](https://github.com/lykmapipo/postman/commit/db43c81c8cd070eff3bf94722d17890e8d26fec7))
+*  add campaign channel ([f0088af5](https://github.com/lykmapipo/postman/commit/f0088af57dec28fa5157e089aa72957e2bf92481))
+*  add campaign title or name ([99789544](https://github.com/lykmapipo/postman/commit/99789544c63ca6ad71d9c235785f3d56ff168280))
+*  add form, subject and message on campaign ([fbbda967](https://github.com/lykmapipo/postman/commit/fbbda9670c3131836ccfef5a4870fa6d35c7d808))
+*  initialize campaign model ([2ff20314](https://github.com/lykmapipo/postman/commit/2ff20314bb811c0841f5629925ec1de23b40ba97))
+*  add queuedAt timestamps & ensure processing states ([1c3a69cb](https://github.com/lykmapipo/postman/commit/1c3a69cb147c060c417263771b525bb069003fb1))
+
+##### Refactors
+
+*  use hashOf to compute message hash ([972c473b](https://github.com/lykmapipo/postman/commit/972c473bd345f42c9a21d5425e3d54ba8cfe1476))
+*  use toE164 in common ([08cfb4ff](https://github.com/lykmapipo/postman/commit/08cfb4fff7368584b182c7130bedd4debd89892b))
+*  migrate to use libphonenumber for phone number parsing ([94f5896d](https://github.com/lykmapipo/postman/commit/94f5896d93ea4c50966fa574cfb3b6dd4719aba5))
+*  start extract common constants ([fa626880](https://github.com/lykmapipo/postman/commit/fa62688092de6144d4219e4398f9429aa789d132))
+
+##### Tests
+
+*  add message http specs ([d2b3d6ae](https://github.com/lykmapipo/postman/commit/d2b3d6ae3291112cd28dab174052dcb7f999c9e8))
+*  comment transport on postman specs ([051196ef](https://github.com/lykmapipo/postman/commit/051196ef055700b533b01cfe70e44caad85e632b))
+
 #### 0.8.2 (2019-06-15)
 
 ##### Chores
