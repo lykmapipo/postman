@@ -11,6 +11,7 @@ const common = require('./lib/common');
 const Message = require('./lib/message.model');
 const messageRouter = require('./lib/message.http.router');
 const Campaign = require('./lib/campaign.model');
+const campaignRouter = require('./lib/campaign.http.router');
 
 
 /* constants */
@@ -36,6 +37,10 @@ function postman() {
 
 /* export postman campaign model */
 postman.Campaign = Campaign;
+
+
+/* export postman message http router */
+postman.campaignRouter = campaignRouter;
 
 
 /* export postman message model */
