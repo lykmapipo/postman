@@ -7,9 +7,10 @@ const { getString } = require('@lykmapipo/env');
 const kue = require('kue');
 const { listen } = require('@lykmapipo/kue-common');
 const { worker } = require('mongoose-kue');
-const Message = require('./lib/message.model');
-const Campaign = require('./lib/campaign.model');
 const common = require('./lib/common');
+const Message = require('./lib/message.model');
+const messageRouter = require('./lib/message.http.router');
+const Campaign = require('./lib/campaign.model');
 
 
 /* constants */
@@ -39,6 +40,10 @@ postman.Campaign = Campaign;
 
 /* export postman message model */
 postman.Message = Message;
+
+
+/* export postman message http router */
+postman.messageRouter = messageRouter;
 
 
 /* export postman email message factory */

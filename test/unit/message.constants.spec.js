@@ -6,7 +6,6 @@ const path = require('path');
 const { expect } = require('chai');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
-
 describe('Message Constants', () => {
 
   describe('schema options', () => {
