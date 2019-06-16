@@ -40,8 +40,8 @@
   ],
   "devDependencies": {
     "@benmaruchu/faker": "^4.2.1",
-    "@lykmapipo/express-test-helpers": "^0.8.2",
-    "@lykmapipo/mongoose-test-helpers": ">=0.7.10",
+    "@lykmapipo/express-test-helpers": "^0.8.3",
+    "@lykmapipo/mongoose-test-helpers": ">=0.7.11",
     "chai": "^4.2.0",
     "grunt": "^1.0.4",
     "grunt-contrib-jshint": "^2.1.0",
@@ -58,10 +58,10 @@
   },
   "dependencies": {
     "@lykmapipo/env": ">=0.9.1",
-    "@lykmapipo/express-common": ">=0.17.6",
-    "@lykmapipo/express-rest-actions": ">=0.6.3",
+    "@lykmapipo/express-common": ">=0.17.7",
+    "@lykmapipo/express-rest-actions": ">=0.6.4",
     "@lykmapipo/kue-common": ">=0.3.4",
-    "@lykmapipo/mongoose-common": ">=0.25.2",
+    "@lykmapipo/mongoose-common": ">=0.25.3",
     "@lykmapipo/mongoose-exportable": ">=0.3.4",
     "@lykmapipo/phone": ">=0.5.0",
     "@lykmapipo/tz-ega-sms": ">=0.5.3",
@@ -74,11 +74,7 @@
     "mongoose-kue": ">=0.8.2",
     "mongoose-rest-actions": ">=0.28.4",
     "node-gcm": ">=1.0.2",
-    "nodemailer": ">=6.2.1",
-    "object-hash": ">=1.3.1",
-    "require-all": ">=3.0.0",
-    "string-template": ">=1.0.0",
-    "striptags": ">=3.1.1"
+    "nodemailer": ">=6.2.1"
   },
   "engines": {
     "node": ">=8.6.0",
