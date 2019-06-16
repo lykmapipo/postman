@@ -66,7 +66,7 @@ postman.Push = function Push(payload) {
 
 
 /* export postman utils */
-postman.utils = require('./lib/utils');
+postman.utils = common;
 
 
 /* export postman worker */
