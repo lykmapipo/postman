@@ -22,13 +22,23 @@ const DEFAULT_PUSH_TRANSPORT_NAME = getString('DEFAULT_PUSH_TRANSPORT_NAME');
  * @module postman
  * @name postman
  * @description collective notifications for nodejs
+ * @param {Object} integration valid integration options
+ * @param {Function} [integration.fetchContacts] valid fetch account
+ * implementation
  * @author lally elias <lallyelias87@gmail.com>
  * @license MIT
  * @since 0.1.0
  * @version 1.0.0
  * @public
  */
-function postman() {}
+function postman(integration) {
+  //ensure integration integration
+  if (integration && _.isFunction(integration.fetchContacts)) {
+    const { fetchContacts } = integration;
+    Campaign.fetchContacts = (criteria, done) => fetchContacts(criteria, done);
+  }
+  return postman;
+}
 
 /* export postman campaign model */
 postman.Campaign = Campaign;

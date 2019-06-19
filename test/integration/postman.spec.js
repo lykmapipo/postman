@@ -1,18 +1,19 @@
 'use strict';
 
 /* dependencies */
-const path = require('path');
 const { expect } = require('chai');
 const faker = require('@benmaruchu/faker');
-const postman = require(path.join(__dirname, '..', '..'));
-const { Email, SMS } = postman;
+const postman = require('../..')({
+  fetchContacts: (criteria, done) => done(null, []),
+});
+const { Email, SMS, Campaign } = postman;
 
 describe('postman', () => {
   it('should be a factory', () => {
     expect(postman).to.exist;
     expect(postman).to.be.a('function');
     expect(postman.name).to.be.equal('postman');
-    expect(postman.length).to.be.equal(0);
+    expect(postman.length).to.be.equal(1);
     expect(postman.Message).to.exist;
     expect(postman.Email).to.exist;
     expect(postman.SMS).to.exist;
@@ -54,5 +55,10 @@ describe('postman', () => {
     expect(sms).to.exist;
     expect(sms.type).to.be.equal('SMS');
     expect(sms.to).to.be.eql([payload.to]);
+  });
+
+  it('should set fetchContacts to campaign', () => {
+    expect(Campaign).to.exist;
+    expect(Campaign.fetchContacts).to.exist;
   });
 });
