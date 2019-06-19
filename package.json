@@ -59,11 +59,12 @@
     "mongoose": ">=5.6.0"
   },
   "dependencies": {
+    "@lykmapipo/common": ">=0.22.0",
     "@lykmapipo/env": ">=0.9.1",
     "@lykmapipo/express-common": ">=0.17.7",
     "@lykmapipo/express-rest-actions": ">=0.6.4",
     "@lykmapipo/kue-common": ">=0.3.4",
-    "@lykmapipo/mongoose-common": ">=0.25.3",
+    "@lykmapipo/mongoose-common": ">=0.25.4",
     "@lykmapipo/mongoose-exportable": ">=0.3.4",
     "@lykmapipo/phone": ">=0.5.0",
     "@lykmapipo/tz-ega-sms": ">=0.5.3",
