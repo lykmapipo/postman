@@ -1,15 +1,12 @@
 'use strict';
 
-
 /* dependencies */
 const path = require('path');
 const { expect } = require('chai');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
 describe('Message Constants', () => {
-
   describe('schema options', () => {
-
     it('should have model name', () => {
       expect(Message.MODEL_NAME).to.exist;
       expect(Message.MODEL_NAME).to.be.a('string');
@@ -21,11 +18,9 @@ describe('Message Constants', () => {
       expect(Message.COLLECTION_NAME).to.be.a('string');
       expect(Message.COLLECTION_NAME).to.be.equal('messages');
     });
-
   });
 
   describe('types', () => {
-
     it('should have sms', () => {
       expect(Message.TYPE_SMS).to.exist;
       expect(Message.TYPE_SMS).to.be.a('string');
@@ -52,11 +47,9 @@ describe('Message Constants', () => {
       expect(Message.TYPES).to.include('EMAIL');
       expect(Message.TYPES).to.include('PUSH');
     });
-
   });
 
-  describe('mimes', function () {
-
+  describe('mimes', function() {
     it('should have text/plain', () => {
       expect(Message.MIME_TEXT).to.exist;
       expect(Message.MIME_TEXT).to.be.a('string');
@@ -82,11 +75,9 @@ describe('Message Constants', () => {
       expect(Message.MIMES).to.include('text/plain');
       expect(Message.MIMES).to.include('text/html');
     });
-
   });
 
-  describe('priorities', function () {
-
+  describe('priorities', function() {
     it('should have low', () => {
       expect(Message.PRIORITY_LOW).to.exist;
       expect(Message.PRIORITY_LOW).to.be.a('string');
@@ -127,7 +118,5 @@ describe('Message Constants', () => {
       expect(Message.PRIORITIES).to.include('high');
       expect(Message.PRIORITIES).to.include('critical');
     });
-
   });
-
 });

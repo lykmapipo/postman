@@ -1,6 +1,5 @@
 'use strict';
 
-
 /* dependencies */
 const path = require('path');
 const { expect } = require('chai');
@@ -8,11 +7,8 @@ const mongoose = require('mongoose');
 const Types = mongoose.Schema.Types;
 const { Message } = require(path.join(__dirname, '..', '..'));
 
-
 describe('Message Schema', () => {
-
-  it('should have type field', function () {
-
+  it('should have type field', function() {
     const type = Message.path('type');
 
     expect(type).to.exist;
@@ -28,11 +24,9 @@ describe('Message Schema', () => {
     expect(type.options.index).to.be.true;
     expect(type.options.searchable).to.be.true;
     expect(type.options.fake).to.exist;
-
   });
 
-  it('should have mime field', function () {
-
+  it('should have mime field', function() {
     const mime = Message.path('mime');
 
     expect(mime).to.exist;
@@ -48,11 +42,9 @@ describe('Message Schema', () => {
     expect(mime.options.index).to.be.true;
     expect(mime.options.searchable).to.be.true;
     expect(mime.options.fake).to.exist;
-
   });
 
-  it('should have direction field', function () {
-
+  it('should have direction field', function() {
     const direction = Message.path('direction');
 
     expect(direction).to.exist;
@@ -68,11 +60,9 @@ describe('Message Schema', () => {
     expect(direction.options.index).to.be.true;
     expect(direction.options.searchable).to.be.true;
     expect(direction.options.fake).to.exist;
-
   });
 
-  it('should have state field', function () {
-
+  it('should have state field', function() {
     const state = Message.path('state');
 
     expect(state).to.exist;
@@ -88,11 +78,9 @@ describe('Message Schema', () => {
     expect(state.options.index).to.be.true;
     expect(state.options.searchable).to.be.true;
     expect(state.options.fake).to.exist;
-
   });
 
-  it('should have mode field', function () {
-
+  it('should have mode field', function() {
     const mode = Message.path('mode');
 
     expect(mode).to.exist;
@@ -108,11 +96,9 @@ describe('Message Schema', () => {
     expect(mode.options.index).to.be.true;
     expect(mode.options.searchable).to.be.true;
     expect(mode.options.fake).to.exist;
-
   });
 
-  it('should have bulk field', function () {
-
+  it('should have bulk field', function() {
     const bulk = Message.path('bulk');
 
     expect(bulk).to.exist;
@@ -125,11 +111,9 @@ describe('Message Schema', () => {
     expect(bulk.options.index).to.be.true;
     expect(bulk.options.searchable).to.be.true;
     expect(bulk.options.fake).to.exist;
-
   });
 
-  it('should have sender field', function () {
-
+  it('should have sender field', function() {
     const sender = Message.path('sender');
 
     expect(sender).to.exist;
@@ -142,11 +126,9 @@ describe('Message Schema', () => {
     expect(sender.options.index).to.be.true;
     expect(sender.options.searchable).to.be.true;
     expect(sender.options.fake).to.exist;
-
   });
 
-  it('should have to field', function () {
-
+  it('should have to field', function() {
     const to = Message.path('to');
 
     expect(to).to.exist;
@@ -159,11 +141,9 @@ describe('Message Schema', () => {
     expect(to.options.index).to.be.true;
     expect(to.options.searchable).to.be.true;
     expect(to.options.fake).to.exist;
-
   });
 
-  it('should have cc field', function () {
-
+  it('should have cc field', function() {
     const cc = Message.path('cc');
 
     expect(cc).to.exist;
@@ -175,11 +155,9 @@ describe('Message Schema', () => {
     expect(cc.options.index).to.be.true;
     expect(cc.options.searchable).to.be.true;
     expect(cc.options.fake).to.exist;
-
   });
 
-  it('should have bcc field', function () {
-
+  it('should have bcc field', function() {
     const bcc = Message.path('bcc');
 
     expect(bcc).to.exist;
@@ -191,11 +169,9 @@ describe('Message Schema', () => {
     expect(bcc.options.index).to.be.true;
     expect(bcc.options.searchable).to.be.true;
     expect(bcc.options.fake).to.exist;
-
   });
 
-  it('should have subject field', function () {
-
+  it('should have subject field', function() {
     const subject = Message.path('subject');
 
     expect(subject).to.exist;
@@ -208,11 +184,9 @@ describe('Message Schema', () => {
     expect(subject.options.index).to.be.true;
     expect(subject.options.searchable).to.be.true;
     expect(subject.options.fake).to.exist;
-
   });
 
-  it('should have body field', function () {
-
+  it('should have body field', function() {
     const body = Message.path('body');
 
     expect(body).to.exist;
@@ -225,11 +199,9 @@ describe('Message Schema', () => {
     expect(body.options.index).to.be.true;
     expect(body.options.searchable).to.be.true;
     expect(body.options.fake).to.exist;
-
   });
 
-  it('should have queuedAt field', function () {
-
+  it('should have queuedAt field', function() {
     const queuedAt = Message.path('queuedAt');
 
     expect(queuedAt).to.exist;
@@ -240,11 +212,9 @@ describe('Message Schema', () => {
     expect(queuedAt.options.type.name).to.be.equal('Date');
     expect(queuedAt.options.index).to.be.true;
     expect(queuedAt.options.fake).to.exist;
-
   });
 
-  it('should have sentAt field', function () {
-
+  it('should have sentAt field', function() {
     const sentAt = Message.path('sentAt');
 
     expect(sentAt).to.exist;
@@ -255,11 +225,9 @@ describe('Message Schema', () => {
     expect(sentAt.options.type.name).to.be.equal('Date');
     expect(sentAt.options.index).to.be.true;
     expect(sentAt.options.fake).to.exist;
-
   });
 
-  it('should have failedAt field', function () {
-
+  it('should have failedAt field', function() {
     const failedAt = Message.path('failedAt');
 
     expect(failedAt).to.exist;
@@ -270,11 +238,9 @@ describe('Message Schema', () => {
     expect(failedAt.options.type.name).to.be.equal('Date');
     expect(failedAt.options.index).to.be.true;
     expect(failedAt.options.fake).to.exist;
-
   });
 
-  it('should have deliveredAt field', function () {
-
+  it('should have deliveredAt field', function() {
     const deliveredAt = Message.path('deliveredAt');
 
     expect(deliveredAt).to.exist;
@@ -285,11 +251,9 @@ describe('Message Schema', () => {
     expect(deliveredAt.options.type.name).to.be.equal('Date');
     expect(deliveredAt.options.index).to.be.true;
     expect(deliveredAt.options.fake).to.exist;
-
   });
 
-  it('should have readAt field', function () {
-
+  it('should have readAt field', function() {
     const readAt = Message.path('readAt');
 
     expect(readAt).to.exist;
@@ -300,11 +264,9 @@ describe('Message Schema', () => {
     expect(readAt.options.type.name).to.be.equal('Date');
     expect(readAt.options.index).to.be.true;
     expect(readAt.options.fake).to.exist;
-
   });
 
-  it('should have result field', function () {
-
+  it('should have result field', function() {
     const result = Message.path('result');
 
     expect(result).to.exist;
@@ -314,11 +276,9 @@ describe('Message Schema', () => {
     expect(result.options.type).to.be.a('function');
     expect(result.options.type.name).to.be.equal('Mixed');
     expect(result.options.fake).to.exist;
-
   });
 
-  it('should have transport field', function () {
-
+  it('should have transport field', function() {
     const transport = Message.path('transport');
 
     expect(transport).to.exist;
@@ -331,11 +291,9 @@ describe('Message Schema', () => {
     expect(transport.options).to.have.property('default');
     expect(transport.options.searchable).to.be.true;
     expect(transport.options.fake).to.exist;
-
   });
 
-  it('should have priority field', function () {
-
+  it('should have priority field', function() {
     const priority = Message.path('priority');
 
     expect(priority).to.exist;
@@ -351,11 +309,9 @@ describe('Message Schema', () => {
     expect(priority.options.index).to.be.true;
     expect(priority.options.searchable).to.be.true;
     expect(priority.options.fake).to.exist;
-
   });
 
-  it('should have hash field', function () {
-
+  it('should have hash field', function() {
     const hash = Message.path('hash');
 
     expect(hash).to.exist;
@@ -369,11 +325,9 @@ describe('Message Schema', () => {
     expect(hash.options.unique).to.be.true;
     expect(hash.options.searchable).to.be.true;
     expect(hash.options.fake).to.exist;
-
   });
 
-  it('should have tags field', function () {
-
+  it('should have tags field', function() {
     const tags = Message.path('tags');
 
     expect(tags).to.exist;
@@ -384,11 +338,9 @@ describe('Message Schema', () => {
     expect(tags.options.type[0].name).to.be.equal('String');
     expect(tags.options.index).to.be.true;
     expect(tags.options.searchable).to.be.true;
-
   });
 
-  it('should have options field', function () {
-
+  it('should have options field', function() {
     const options = Message.path('options');
 
     expect(options).to.exist;
@@ -398,7 +350,5 @@ describe('Message Schema', () => {
     expect(options.options.type).to.be.a('function');
     expect(options.options.type.name).to.be.equal('Mixed');
     expect(options.options.fake).to.exist;
-
   });
-
 });

@@ -35,9 +35,7 @@ describe('Campaign Validation', () => {
   it('should work with well known criteria format', done => {
     const campaign = Campaign.fake();
     campaign.criteria = {
-      _id: { $in: ['5cffb7692e65f7001a2d5b02',
-          '5cffb7692e65f7001a2d5b1d'
-        ] },
+      _id: { $in: ['5cffb7692e65f7001a2d5b02', '5cffb7692e65f7001a2d5b1d'] },
       group: { $in: [] },
       role: { $in: [] },
       location: { $in: [] },

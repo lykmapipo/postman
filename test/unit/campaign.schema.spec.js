@@ -1,6 +1,5 @@
 'use strict';
 
-
 /* dependencies */
 const path = require('path');
 const { SchemaTypes } = require('@lykmapipo/mongoose-common');

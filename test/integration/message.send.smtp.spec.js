@@ -1,31 +1,24 @@
 'use strict';
 
-
 /* dependencies */
 const path = require('path');
 const { expect } = require('chai');
 const { clear } = require('@lykmapipo/mongoose-test-helpers');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
-
 describe('smtp transport', () => {
-
   before(done => clear(done));
 
-  describe('debug', function () {
-
+  describe('debug', function() {
     before(() => {
       process.env.DEBUG = true;
     });
 
-    it('should be able to send message', (done) => {
-
-      const message =
-        Message.fakeExcept('sentAt', 'failedAt', 'deliveredAt');
+    it('should be able to send message', done => {
+      const message = Message.fakeExcept('sentAt', 'failedAt', 'deliveredAt');
       message.transport = 'smtp';
 
       message.send((error, sent) => {
-
         //assert results
         expect(error).to.not.exist;
         expect(sent).to.exist;
@@ -38,34 +31,28 @@ describe('smtp transport', () => {
         expect(sent.result.success).to.exist;
         expect(sent.result.success).to.be.true;
         done(error, sent);
-
       });
-
     });
 
     after(() => {
       delete process.env.DEBUG;
     });
-
   });
 
   if (process.env.SMTP_TEST_RECEIVER) {
-    describe('live', function () {
-
+    describe('live', function() {
       before(() => {
         process.env.DEBUG = false;
       });
 
-      it('should be able to send text message', (done) => {
-
+      it('should be able to send text message', done => {
         const message = new Message({
           to: process.env.SMTP_TEST_RECEIVER,
-          body: 'Test Email'
+          body: 'Test Email',
         });
         message.transport = 'smtp';
 
         message.send((error, sent) => {
-
           //assert results
           expect(error).to.not.exist;
           expect(sent).to.exist;
@@ -78,21 +65,17 @@ describe('smtp transport', () => {
           expect(sent.result.success).to.exist;
           expect(sent.result.success).to.be.true;
           done(error, sent);
-
         });
-
       });
 
-      it('should be able to send html message', (done) => {
-
+      it('should be able to send html message', done => {
         const message = new Message({
           to: process.env.SMTP_TEST_RECEIVER,
-          body: '<b>Test Email<b>'
+          body: '<b>Test Email<b>',
         });
         message.transport = 'smtp';
 
         message.send((error, sent) => {
-
           //assert results
           expect(error).to.not.exist;
           expect(sent).to.exist;
@@ -107,18 +90,14 @@ describe('smtp transport', () => {
           expect(sent.result.success).to.exist;
           expect(sent.result.success).to.be.true;
           done(error, sent);
-
         });
-
       });
 
       after(() => {
         delete process.env.DEBUG;
       });
-
     });
   }
 
   after(done => clear(done));
-
 });

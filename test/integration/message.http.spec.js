@@ -6,7 +6,7 @@ const {
 } = require('@lykmapipo/express-test-helpers');
 const {
   clear: clearDatabase,
-  expect
+  expect,
 } = require('@lykmapipo/mongoose-test-helpers');
 const { Message, messageRouter } = require('../..');
 

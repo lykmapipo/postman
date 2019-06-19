@@ -1,6 +1,5 @@
 'use strict';
 
-
 /* dependencies */
 const path = require('path');
 const { expect } = require('chai');
@@ -8,9 +7,7 @@ const faker = require('@benmaruchu/faker');
 const postman = require(path.join(__dirname, '..', '..'));
 const { Email, SMS } = postman;
 
-
 describe('postman', () => {
-
   it('should be a factory', () => {
     expect(postman).to.exist;
     expect(postman).to.be.a('function');
@@ -25,7 +22,6 @@ describe('postman', () => {
   });
 
   it('should expose Email factory', () => {
-
     //assert
     expect(Email).to.exist;
     expect(Email).to.be.a('function');
@@ -41,11 +37,9 @@ describe('postman', () => {
     expect(email.type).to.be.equal('EMAIL');
     // expect(email.transport).to.be.equal('smtp');
     expect(email.to).to.be.eql([payload.to]);
-
   });
 
   it('should expose SMS factory', () => {
-
     //assert
     expect(SMS).to.exist;
     expect(SMS).to.be.a('function');
@@ -60,7 +54,5 @@ describe('postman', () => {
     expect(sms).to.exist;
     expect(sms.type).to.be.equal('SMS');
     expect(sms.to).to.be.eql([payload.to]);
-
   });
-
 });

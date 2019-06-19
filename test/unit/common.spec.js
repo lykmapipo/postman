@@ -5,7 +5,6 @@ const { expect } = require('chai');
 const { toE164 } = require('../..');
 
 describe('utils', () => {
-
   it('should expose toE164 formatter', () => {
     expect(toE164).to.exist;
     expect(toE164).to.be.a('function');
