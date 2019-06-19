@@ -1,3 +1,17 @@
+#### 0.9.2 (2019-06-19)
+
+##### Bug Fixes
+
+*  allow service criteria with mongodb keywords ([5318c5a5](https://github.com/lykmapipo/postman/commit/5318c5a5ca73837d42599a43afbbdb237a96c0b0))
+
+##### Code Style Changes
+
+*  format codes using prettier ([27b79eec](https://github.com/lykmapipo/postman/commit/27b79eec07d9b6978a9004ea9ccf75d16d49cbcf))
+
+##### Tests
+
+*  add campaign validations specs ([5faeab32](https://github.com/lykmapipo/postman/commit/5faeab32610c6ad1bbf511e66bc3f4bda90379b1))
+
 #### 0.9.1 (2019-06-19)
 
 #### 0.9.0 (2019-06-16)
