@@ -2,21 +2,15 @@
 
 /* dependencies */
 const _ = require('lodash');
-const { getString } = require('@lykmapipo/env');
 const kue = require('kue');
 const { listen } = require('@lykmapipo/kue-common');
 const { worker } = require('mongoose-kue');
 const common = require('./lib/common');
-const Message = require('./lib/message.model');
+const { Message, Email, SMS, Push } = require('./lib/message.model');
 const messageRouter = require('./lib/message.http.router');
 const Campaign = require('./lib/campaign.model');
 const campaignRouter = require('./lib/campaign.http.router');
 
-/* constants */
-const { TYPE_EMAIL, TYPE_SMS, TYPE_PUSH } = Message;
-const DEFAULT_SMTP_TRANSPORT_NAME = getString('DEFAULT_SMTP_TRANSPORT_NAME');
-const DEFAULT_SMS_TRANSPORT_NAME = getString('DEFAULT_SMS_TRANSPORT_NAME');
-const DEFAULT_PUSH_TRANSPORT_NAME = getString('DEFAULT_PUSH_TRANSPORT_NAME');
 
 /**
  * @module postman
@@ -53,35 +47,13 @@ postman.Message = Message;
 postman.messageRouter = messageRouter;
 
 /* export postman email message factory */
-postman.Email = function Email(payload) {
-  const _payload = _.merge({}, payload, {
-    transport: DEFAULT_SMTP_TRANSPORT_NAME,
-    type: TYPE_EMAIL,
-  });
-  return new Message(_payload);
-};
+postman.Email = Email;
 
 /* export postman sms message factory */
-postman.SMS = function SMS(payload) {
-  const _payload = _.merge(
-    {},
-    { transport: DEFAULT_SMS_TRANSPORT_NAME },
-    payload,
-    { type: TYPE_SMS }
-  );
-  return new Message(_payload);
-};
+postman.SMS = SMS;
 
 /* export postman push message factory */
-postman.Push = function Push(payload) {
-  const _payload = _.merge(
-    {},
-    { transport: DEFAULT_PUSH_TRANSPORT_NAME },
-    payload,
-    { type: TYPE_PUSH }
-  );
-  return new Message(_payload);
-};
+postman.Push = Push;
 
 /* export postman utils */
 postman.utils = common;
