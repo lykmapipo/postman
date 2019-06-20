@@ -25,6 +25,8 @@ describe('campaign send', () => {
   it('should be able to send without fetchContacts', done => {
     const to = fakeContacts();
 
+    Campaign.fetchContacts = undefined;
+
     const campaign = Campaign.fake();
     campaign.to = [to];
     expect(campaign.send).to.exist;

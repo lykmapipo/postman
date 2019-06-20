@@ -58,6 +58,7 @@ describe('postman', () => {
   });
 
   it('should set fetchContacts to campaign', () => {
+    Campaign.fetchContacts = (criteria, done) => done(null, []);
     expect(Campaign).to.exist;
     expect(Campaign.fetchContacts).to.exist;
   });
