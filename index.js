@@ -11,7 +11,6 @@ const messageRouter = require('./lib/message.http.router');
 const Campaign = require('./lib/campaign.model');
 const campaignRouter = require('./lib/campaign.http.router');
 
-
 /**
  * @module postman
  * @name postman
