@@ -1,3 +1,24 @@
+#### 0.10.0 (2019-06-20)
+
+##### Chores
+
+* **deps:**  force latest version & audit fix ([bc0bdc43](https://github.com/lykmapipo/postman/commit/bc0bdc433c4a87aa0ee9e68f1a352a1de05c24b1))
+
+##### New Features
+
+*  use queue on message http post ([6ad2e0df](https://github.com/lykmapipo/postman/commit/6ad2e0df36bb468a7306c97c63c6504af44bf6bf))
+*  use queue on campaign post ([09787a97](https://github.com/lykmapipo/postman/commit/09787a9775cc5fb0ca3bc4208656aea91d1f0688))
+*  implement campaign queue ([88338fc0](https://github.com/lykmapipo/postman/commit/88338fc0707cd8d2f143c8ec8ceefab166436d6c))
+*  implement campaign queue ([1e215fde](https://github.com/lykmapipo/postman/commit/1e215fde58e2f889371bd387bc6d57672a81e8a3))
+*  implement campaign send ([8ed527b9](https://github.com/lykmapipo/postman/commit/8ed527b9b8f1c99050d3abaed4b3d07659cf6b31))
+*  implement campaign send and sendEmails ([a0be6e88](https://github.com/lykmapipo/postman/commit/a0be6e88df8f9b1aa2ba04290a9ce632de55dd51))
+*  add campaign to message ([06b71d24](https://github.com/lykmapipo/postman/commit/06b71d24aeab4f6fd24d542773a8e761a58ef26b))
+*  support fetchContacts from integrations ([a8d5d24c](https://github.com/lykmapipo/postman/commit/a8d5d24c0ca6e23db9be95f92015d8cb75a11753))
+
+##### Tests
+
+*  add campaign send specs ([b8bb06d0](https://github.com/lykmapipo/postman/commit/b8bb06d03e7c54041584934e7d3e6dbb268f80a4))
+
 #### 0.9.3 (2019-06-19)
 
 ##### Chores
