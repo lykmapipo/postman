@@ -40,9 +40,9 @@
     }
   ],
   "devDependencies": {
-    "@benmaruchu/faker": "^4.2.1",
+    "@benmaruchu/faker": "^4.3.0",
     "@lykmapipo/express-test-helpers": "^0.8.5",
-    "@lykmapipo/mongoose-test-helpers": ">=0.7.15",
+    "@lykmapipo/mongoose-test-helpers": ">=0.7.17",
     "chai": "^4.2.0",
     "grunt": "^1.0.4",
     "grunt-contrib-jshint": "^2.1.0",
@@ -50,35 +50,36 @@
     "grunt-mocha-test": "^0.13.3",
     "handlebars": "^4.1.2",
     "jshint-stylish": "^2.2.1",
-    "mocha": "^6.1.4",
+    "lodash.template": "^4.5.0",
+    "mocha": "^6.2.0",
     "mongoose": "^5.5.11",
     "prettier": "^1.18.2",
     "shelljs": "^0.8.3",
     "supertest": "^4.0.2"
   },
   "peerDependencies": {
-    "mongoose": ">=5.6.4"
+    "mongoose": ">=5.6.9"
   },
   "dependencies": {
-    "@lykmapipo/common": ">=0.22.3",
-    "@lykmapipo/env": ">=0.9.5",
+    "@lykmapipo/common": ">=0.25.1",
+    "@lykmapipo/env": ">=0.12.1",
     "@lykmapipo/express-common": ">=0.17.9",
     "@lykmapipo/express-rest-actions": ">=0.6.6",
-    "@lykmapipo/kue-common": ">=0.3.7",
-    "@lykmapipo/mongoose-common": ">=0.25.8",
-    "@lykmapipo/mongoose-exportable": ">=0.3.6",
-    "@lykmapipo/phone": ">=0.5.3",
+    "@lykmapipo/kue-common": ">=0.3.8",
+    "@lykmapipo/mongoose-common": ">=0.25.10",
+    "@lykmapipo/mongoose-exportable": ">=0.3.7",
+    "@lykmapipo/phone": ">=0.5.4",
     "@lykmapipo/tz-ega-sms": ">=0.5.4",
     "async": ">=3.1.0",
-    "bipsms": ">=0.4.3",
+    "bipsms": ">=0.4.4",
     "country-data": "0.0.31",
     "is-html": ">=2.0.0",
     "kue": ">=0.11.6",
-    "lodash": ">=4.17.11",
-    "mongoose-kue": ">=0.8.4",
-    "mongoose-rest-actions": ">=0.28.6",
+    "lodash": ">=4.17.15",
+    "mongoose-kue": ">=0.8.5",
+    "mongoose-rest-actions": ">=0.28.7",
     "node-gcm": ">=1.0.2",
-    "nodemailer": ">=6.2.1"
+    "nodemailer": ">=6.3.0"
   },
   "engines": {
     "node": ">=8.6.0",
