@@ -1,3 +1,10 @@
+#### 0.12.0 (2019-09-12)
+
+##### New Features
+
+*  make use of from in smtp transport ([12dabee7](https://github.com/lykmapipo/postman/commit/12dabee72c4f49d3b6da570e446645484d591702))
+*  add support of replyTo ([3f276183](https://github.com/lykmapipo/postman/commit/3f27618355bc2096059d320ef74f9adb9076af54))
+
 #### 0.11.0 (2019-09-12)
 
 ##### New Features
