@@ -58,6 +58,8 @@ describe('smtp transport', () => {
           expect(sent).to.exist;
           expect(sent._id).to.exist;
           expect(sent.transport).to.be.equal('smtp');
+          expect(sent.mime).to.be.equal('text/plain');
+          expect(sent.isHtml()).to.be.false;
           expect(sent.sentAt).to.exist;
           expect(sent.deliveredAt).to.exist;
           expect(sent.failedAt).to.not.exist;
