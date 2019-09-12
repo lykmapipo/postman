@@ -1,3 +1,13 @@
+#### 0.10.5 (2019-09-12)
+
+##### Chores
+
+* **deps:**  force latest version & audit fix ([774d31ac](https://github.com/lykmapipo/postman/commit/774d31accbbe097d1308c83c93f2833bd2c363e5))
+
+##### Bug Fixes
+
+*  mime type checking ([a47a7991](https://github.com/lykmapipo/postman/commit/a47a79911e6af3f8f0fb80d4f944823ee9431c33))
+
 #### 0.10.4 (2019-08-15)
 
 ##### Chores

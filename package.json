@@ -1,6 +1,6 @@
 {
   "name": "@lykmapipo/postman",
-  "version": "0.10.4",
+  "version": "0.10.5",
   "description": "collective notifications for nodejs",
   "keywords": [
     "lykmapipo",
@@ -52,7 +52,7 @@
     "jshint-stylish": "^2.2.1",
     "lodash.template": "^4.5.0",
     "mocha": "^6.2.0",
-    "mongoose": "^5.5.11",
+    "mongoose": ">=5.7.0",
     "prettier": "^1.18.2",
     "shelljs": "^0.8.3",
     "supertest": "^4.0.2"
