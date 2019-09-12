@@ -1,3 +1,9 @@
+#### 0.11.0 (2019-09-12)
+
+##### New Features
+
+*  start support TLS options on SMTP transport ([324e0d0d](https://github.com/lykmapipo/postman/commit/324e0d0dd2401ba16f1b538c45214983df48c64e))
+
 #### 0.10.5 (2019-09-12)
 
 ##### Chores
