@@ -183,6 +183,21 @@ describe('Message Schema', () => {
     expect(bcc.options.fake).to.exist;
   });
 
+  it('should have replyTo field', function() {
+    const replyTo = Message.path('replyTo');
+
+    expect(replyTo).to.exist;
+    expect(replyTo).to.be.an.instanceof(SchemaTypes.String);
+    expect(replyTo.instance).to.be.equal('String');
+    expect(replyTo).to.be.an('object');
+    expect(replyTo.options.type).to.be.a('function');
+    expect(replyTo.options.type.name).to.be.equal('String');
+    expect(replyTo.options.trim).to.be.true;
+    expect(replyTo.options.index).to.be.true;
+    expect(replyTo.options.searchable).to.be.true;
+    expect(replyTo.options.fake).to.exist;
+  });
+
   it('should have subject field', function() {
     const subject = Message.path('subject');
 
