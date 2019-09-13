@@ -1,3 +1,9 @@
+#### 0.13.0 (2019-09-13)
+
+##### New Features
+
+*  add smtp from name and address ([a825824e](https://github.com/lykmapipo/postman/commit/a825824e1e894039a4c9ebcb2ddb77e0035629b2))
+
 #### 0.12.0 (2019-09-12)
 
 ##### New Features
