@@ -8,9 +8,13 @@ const {
   clear: clearDatabase,
   expect,
 } = require('@lykmapipo/mongoose-test-helpers');
-const { Message, messageRouter } = require('../..');
+const {
+  Message,
+  messageRouter,
+} = require('../..');
 
-describe('Message Rest API', () => {
+
+describe.skip('Message Rest API', () => {
   const message = Message.fake();
 
   const options = {

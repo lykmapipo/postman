@@ -66,6 +66,9 @@ postman.httpServer = kue.app;
 /* export http server listen */
 postman.listen = listen;
 
+/* export postman worker start */
+postman.start = worker.start;
+
 /* export common constants */
 _.forEach(common, (value, key) => {
   postman[key] = value;

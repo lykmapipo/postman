@@ -76,7 +76,7 @@
     "is-html": ">=2.0.0",
     "kue": ">=0.11.6",
     "lodash": ">=4.17.15",
-    "mongoose-kue": ">=0.9.0",
+    "mongoose-kue": ">=0.9.1",
     "mongoose-rest-actions": ">=0.29.4",
     "node-gcm": ">=1.0.2",
     "nodemailer": ">=6.3.1"

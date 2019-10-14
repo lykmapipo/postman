@@ -34,7 +34,9 @@ describe('campaign send', () => {
     campaign.send((error, sent, messages) => {
       expect(error).to.not.exist;
       expect(sent).to.exist;
-      expect(messages).to.exist.and.have.length(1);
+      expect(messages.email).to.exist.and.have.length(1);
+      // expect(messages.sms).to.exist.and.have.length(1);
+      // expect(messages.push).to.exist.and.have.length(1);
       done(error, sent);
     });
   });
@@ -52,10 +54,55 @@ describe('campaign send', () => {
     campaign.send((error, sent, messages) => {
       expect(error).to.not.exist;
       expect(sent).to.exist;
-      expect(messages).to.exist.and.have.length(5);
+      expect(messages.email).to.exist.and.have.length(5);
+      // expect(messages.sms).to.exist.and.have.length(5);
+      // expect(messages.push).to.exist.and.have.length(5);
       done(error, sent);
     });
   });
+
+  if (process.env.PUSH_FCM_TEST_REGISTRATION_TOKEN &&
+    process.env.SMTP_TEST_RECEIVER &&
+    process.env.SMS_EGA_TZ_TEST_RECEIVER) {
+    describe('campaign live send', () => {
+
+      before(() => {
+        process.env.DEBUG = false;
+      });
+
+      it('should be able to send multi channel message', done => {
+        Campaign.fetchContacts = undefined;
+        const to = {
+          mobile: process.env.SMS_EGA_TZ_TEST_RECEIVER,
+          email: process.env.SMTP_TEST_RECEIVER,
+          pushToken: process.env.PUSH_FCM_TEST_REGISTRATION_TOKEN
+        };
+        const campaign = new Campaign({
+          subject: 'Test Multi Channel Notification',
+          message: 'Test Multi Channel Notification',
+          to: [to],
+          channels: [Campaign.CHANNEL_EMAIL, Campaign.CHANNEL_PUSH],
+          metadata: {
+            data: { level: 1 },
+          },
+        });
+        campaign.send((error, sent, messages) => {
+          expect(error).to.not.exist;
+          expect(sent).to.exist;
+          expect(messages.email).to.exist;
+          expect(messages.sms).to.exist;
+          expect(messages.push).to.exist;
+          done(error, sent);
+          done(error, sent, messages);
+        });
+      });
+
+      after(() => {
+        delete process.env.DEBUG;
+      });
+
+    });
+  }
 
   after(done => clear(done));
 
