@@ -1,3 +1,18 @@
+#### 0.14.0 (2019-10-14)
+
+##### Chores
+
+* **deps:**  force latest version & audit fix ([3be2522a](https://github.com/lykmapipo/postman/commit/3be2522a815f5e510169d45d854cc05c93599582))
+
+##### Documentation Changes
+
+*  update usage docs ([209e51f0](https://github.com/lykmapipo/postman/commit/209e51f0d5f1e04dbe0c54e14434ecd910f35750))
+*  update usage ([e2230026](https://github.com/lykmapipo/postman/commit/e2230026d28e58fead514d2a041e4e1ab876596a))
+
+##### New Features
+
+*  send multi channel message per recipient ([1d43780a](https://github.com/lykmapipo/postman/commit/1d43780a3665ac3c4575e170ddc89ae9f3b6a6ea))
+
 #### 0.13.3 (2019-10-10)
 
 ##### Chores
