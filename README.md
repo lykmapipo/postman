@@ -22,20 +22,19 @@ $ npm install --save @lykmapipo/postman
 ```js
 const { Campaign } = require('@lykmapipo/postman');
 
-const to = [
-  { email: 'hello@example.com', mobile: '2557141...', pushToken: 'f_T6rJ...' }
-];
 const campaign = new Campaign({
   subject: 'Hello',
-  body: 'Hello',
-  to: to,
+  message: 'Hello',
+  to: [
+   { email: 'hello@example.com', mobile: '2557141...', pushToken: 'f_T6rJ...' }
+  ],
   metadata: { level: 1 }
 });
 
 // queue
 const job = campaign.queue();
 
-// sync send
+// or send direct
 campaign.send((error, campaign, messages) => { ... });
 ```
 
