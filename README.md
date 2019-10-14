@@ -15,45 +15,28 @@ collective notifications for nodejs.
 
 ## Install
 ```sh
-$ npm install --save redis kue mongoose @lykmapipo/postman
+$ npm install --save @lykmapipo/postman
 ```
 
 ## Usage
 ```js
-const { Email, SMS, Push } = require('@lykmapipo/postman');
+const { Campaign } = require('@lykmapipo/postman');
 
-//send email
-const email = new Email({ to: 'hello@example.com', subject: 'Hello', body: 'Hello' });
-email.send(cb);
+const to = [
+  { email: 'hello@example.com', mobile: '2557141...', pushToken: 'f_T6rJ...' }
+];
+const campaign = new Campaign({
+  subject: 'Hello',
+  body: 'Hello',
+  to: to,
+  metadata: { level: 1 }
+});
 
-//queue email
-const email = new Email({ to: 'hello@example.com', subject: 'Hello', body: 'Hello' });
-const sendEmailJob = email.queue();
+// queue
+const job = campaign.queue();
 
-...
-
-//send sms
-const sms = new SMS({ to: '255714182838', body: 'Hello' });
-sms.send(cb);
-
-...
-
-//queue sms
-const sms = new SMS({ to: '255714182838', body: 'Hello' });
-const sendSMSJob = sms.queue();
-
-...
-
-//send push
-const push = new Push({ to: 'f_T6rJL43xp:zBDA9obFwy24YR...', body: 'Hello' });
-push.send(cb);
-
-...
-
-//queue push
-const push = new Push({ to: 'f_T6rJL43xp:zBDA9obFwy24YR...', body: 'Hello' });
-const sendPushJob = push.queue();
-
+// sync send
+campaign.send((error, campaign, messages) => { ... });
 ```
 
 ## Environment
