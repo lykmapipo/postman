@@ -52,13 +52,13 @@
     "jshint-stylish": "^2.2.1",
     "lodash.template": "^4.5.0",
     "mocha": "^6.2.1",
-    "mongoose": ">=5.7.4",
+    "mongoose": ">=5.7.5",
     "prettier": "^1.18.2",
     "shelljs": "^0.8.3",
     "supertest": "^4.0.2"
   },
   "peerDependencies": {
-    "mongoose": ">=5.7.4"
+    "mongoose": ">=5.7.5"
   },
   "dependencies": {
     "@lykmapipo/common": ">=0.28.3",
