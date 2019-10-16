@@ -1,3 +1,13 @@
+#### 0.15.0 (2019-10-16)
+
+##### Chores
+
+* **deps:**  force latest version & audit fix ([a74bb058](https://github.com/lykmapipo/postman/commit/a74bb058e1489a95564edcefe9eeddf6f5430e9a))
+
+##### New Features
+
+* **transport:**  add echo transport ([5422f2ce](https://github.com/lykmapipo/postman/commit/5422f2ce83e97639b6e3f2cfc41c4db5b172f2a3))
+
 #### 0.14.0 (2019-10-14)
 
 ##### Chores
