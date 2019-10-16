@@ -8,40 +8,30 @@ const { Message } = require(path.join(__dirname, '..', '..'));
 
 describe('echo transport', () => {
   before(() => {
-    process.env.DEBUG = true;
+    delete process.env.DEBUG;
   });
 
   before(done => clear(done));
 
   it('should be able to send message', done => {
-    const message = Message.fakeExcept('sentAt', 'failedAt', 'deliveredAt');
-    message.send((error, sent) => {
-      //assert results
-      expect(error).to.not.exist;
-      expect(sent).to.exist;
-      expect(sent._id).to.exist;
-      expect(sent.sentAt).to.exist;
-      expect(sent.deliveredAt).to.exist;
-      expect(sent.failedAt).to.not.exist;
-      expect(sent.result).to.exist;
-      expect(sent.result.success).to.exist;
-      expect(sent.result.success).to.be.true;
-      done(error, sent);
-    });
-  });
-
-  it('should be able to send message', done => {
-    const message = Message.fakeExcept('sentAt', 'failedAt', 'deliveredAt');
-    message.transport = undefined;
+    const message = Message.fakeExcept(
+      'sentAt',
+      'failedAt',
+      'deliveredAt',
+      'result'
+    );
+    message.transport = 'echo';
 
     message.send((error, sent) => {
       //assert results
       expect(error).to.not.exist;
       expect(sent).to.exist;
       expect(sent._id).to.exist;
+      expect(sent.transport).to.exist.and.be.equal('echo');
       expect(sent.sentAt).to.exist;
       expect(sent.deliveredAt).to.exist;
       expect(sent.failedAt).to.not.exist;
+      console.log(sent.result);
       expect(sent.result).to.exist;
       expect(sent.result.success).to.exist;
       expect(sent.result.success).to.be.true;

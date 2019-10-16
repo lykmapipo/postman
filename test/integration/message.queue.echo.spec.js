@@ -6,7 +6,7 @@ const { Message, worker } = require('../..');
 
 describe('echo transport queue', () => {
   before(() => {
-    process.env.DEBUG = true;
+    delete process.env.DEBUG;
   });
 
   before(done => clear(done));
@@ -19,8 +19,10 @@ describe('echo transport queue', () => {
       'sentAt',
       'failedAt',
       'deliveredAt',
-      'mode'
+      'mode',
+      'result'
     );
+    message.transport = 'echo';
 
     // listen to queue events
     worker.queue
