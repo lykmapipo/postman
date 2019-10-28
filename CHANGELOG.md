@@ -1,3 +1,13 @@
+#### 0.16.0 (2019-10-28)
+
+##### Chores
+
+* **deps:**  force latest version & audit fix ([b6244b44](https://github.com/lykmapipo/postman/commit/b6244b4419bb4ec124482655436a24cda2b6fd9c))
+
+##### Bug Fixes
+
+* **campaign:**  send using specified channels only ([736cf5d4](https://github.com/lykmapipo/postman/commit/736cf5d4e782c48701cca0ad11d96b46675b26f9))
+
 #### 0.15.0 (2019-10-16)
 
 ##### Chores
