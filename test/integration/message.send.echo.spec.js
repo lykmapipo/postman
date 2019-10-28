@@ -31,7 +31,6 @@ describe('echo transport', () => {
       expect(sent.sentAt).to.exist;
       expect(sent.deliveredAt).to.exist;
       expect(sent.failedAt).to.not.exist;
-      console.log(sent.result);
       expect(sent.result).to.exist;
       expect(sent.result.success).to.exist;
       expect(sent.result.success).to.be.true;

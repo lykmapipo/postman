@@ -3,6 +3,7 @@
 /* dependencies */
 const _ = require('lodash');
 const { faker, clear, expect } = require('@lykmapipo/mongoose-test-helpers');
+const { CHANNEL_EMAIL, CHANNEL_PUSH } = require('../..');
 const { Campaign } = require('../..');
 
 const fakeContacts = (limit = 1) => {
@@ -10,7 +11,8 @@ const fakeContacts = (limit = 1) => {
     const name = faker.name.findName();
     const email = faker.internet.email();
     const mobile = faker.helpers.replaceSymbolWithNumber('255714######');
-    return { name, email, mobile };
+    const pushToken = faker.random.uuid();
+    return { name, email, mobile, pushToken };
   });
   return limit === 1 ? _.first(contacts) : contacts;
 };
@@ -24,11 +26,12 @@ describe('campaign send', () => {
 
   it('should be able to send without fetchContacts', done => {
     const to = fakeContacts();
+    const channels = [CHANNEL_EMAIL, CHANNEL_PUSH];
 
     Campaign.fetchContacts = undefined;
 
     const campaign = Campaign.fake();
-    campaign.to = [to];
+    campaign.set({ to, channels });
     expect(campaign.send).to.exist;
 
     campaign.send((error, sent, messages) => {
@@ -36,19 +39,21 @@ describe('campaign send', () => {
       expect(sent).to.exist;
       expect(messages.email).to.exist.and.have.length(1);
       // expect(messages.sms).to.exist.and.have.length(1);
-      // expect(messages.push).to.exist.and.have.length(1);
+      expect(messages.push).to.exist.and.have.length(1);
       done(error, sent);
     });
   });
 
   it('should be able to send with fetchContacts', done => {
     const to = fakeContacts(4);
+    const channels = [CHANNEL_EMAIL, CHANNEL_PUSH];
 
     Campaign.fetchContacts = (criteria, done) => {
       return done(null, to);
     };
 
     const campaign = Campaign.fake();
+    campaign.set({ channels });
     expect(campaign.send).to.exist;
 
     campaign.send((error, sent, messages) => {
@@ -56,7 +61,7 @@ describe('campaign send', () => {
       expect(sent).to.exist;
       expect(messages.email).to.exist.and.have.length(5);
       // expect(messages.sms).to.exist.and.have.length(5);
-      // expect(messages.push).to.exist.and.have.length(5);
+      expect(messages.push).to.exist.and.have.length(5);
       done(error, sent);
     });
   });
@@ -90,7 +95,7 @@ describe('campaign send', () => {
           expect(error).to.not.exist;
           expect(sent).to.exist;
           expect(messages.email).to.exist;
-          expect(messages.sms).to.exist;
+          // expect(messages.sms).to.exist;
           expect(messages.push).to.exist;
           done(error, sent);
           done(error, sent, messages);
