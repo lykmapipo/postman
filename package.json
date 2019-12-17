@@ -41,8 +41,8 @@
   ],
   "devDependencies": {
     "@benmaruchu/faker": "^4.3.0",
-    "@lykmapipo/express-test-helpers": "^0.8.10",
-    "@lykmapipo/mongoose-test-helpers": ">=0.7.26",
+    "@lykmapipo/express-test-helpers": "^0.8.11",
+    "@lykmapipo/mongoose-test-helpers": ">=0.7.28",
     "chai": "^4.2.0",
     "grunt": "^1.0.4",
     "grunt-contrib-jshint": "^2.1.0",
@@ -52,23 +52,23 @@
     "jshint-stylish": "^2.2.1",
     "lodash.template": "^4.5.0",
     "mocha": "^6.2.2",
-    "mongoose": ">=5.7.12",
+    "mongoose": ">=5.8.1",
     "prettier": "^1.19.1",
     "shelljs": "^0.8.3",
     "supertest": "^4.0.2"
   },
   "peerDependencies": {
-    "mongoose": ">=5.7.12"
+    "mongoose": ">=5.8.1"
   },
   "dependencies": {
-    "@lykmapipo/common": ">=0.28.10",
-    "@lykmapipo/env": ">=0.14.11",
-    "@lykmapipo/express-common": ">=0.17.14",
-    "@lykmapipo/express-rest-actions": ">=0.8.2",
+    "@lykmapipo/common": ">=0.29.0",
+    "@lykmapipo/env": ">=0.16.0",
+    "@lykmapipo/express-common": ">=0.17.15",
+    "@lykmapipo/express-rest-actions": ">=0.8.3",
     "@lykmapipo/kue-common": ">=0.6.0",
-    "@lykmapipo/mongoose-common": ">=0.26.6",
-    "@lykmapipo/mongoose-exportable": ">=0.3.14",
-    "@lykmapipo/phone": ">=0.5.11",
+    "@lykmapipo/mongoose-common": ">=0.28.2",
+    "@lykmapipo/mongoose-exportable": ">=0.3.15",
+    "@lykmapipo/phone": ">=0.5.13",
     "@lykmapipo/tz-ega-sms": ">=0.5.5",
     "async": ">=3.1.0",
     "bipsms": ">=0.5.4",
@@ -77,9 +77,9 @@
     "kue": ">=0.11.6",
     "lodash": ">=4.17.15",
     "mongoose-kue": ">=0.9.4",
-    "mongoose-rest-actions": ">=0.29.6",
+    "mongoose-rest-actions": ">=0.29.9",
     "node-gcm": ">=1.0.2",
-    "nodemailer": ">=6.3.1"
+    "nodemailer": ">=6.4.2"
   },
   "engines": {
     "node": ">=8.6.0",
