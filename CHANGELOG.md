@@ -1,3 +1,9 @@
+#### 0.17.1 (2020-02-24)
+
+##### Chores
+
+* **deps:**  force latest version & audit fix ([816de611](https://github.com/lykmapipo/postman/commit/816de611e2aca28a80f16dcc9b270c1dff3bed07))
+
 #### 0.17.0 (2020-02-24)
 
 ##### Chores
