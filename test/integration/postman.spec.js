@@ -62,4 +62,8 @@ describe('postman', () => {
     expect(Campaign).to.exist;
     expect(Campaign.fetchContacts).to.exist;
   });
+
+  it('should expose smssync http router', () => {
+    expect(postman.smssyncRouter).to.exist;
+  });
 });

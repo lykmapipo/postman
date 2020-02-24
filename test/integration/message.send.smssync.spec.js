@@ -6,7 +6,7 @@ const { expect } = require('chai');
 const { clear } = require('@lykmapipo/mongoose-test-helpers');
 const { Message } = require(path.join(__dirname, '..', '..'));
 
-describe('echo transport', () => {
+describe('smssync transport', () => {
   before(() => {
     delete process.env.DEBUG;
   });
@@ -17,19 +17,21 @@ describe('echo transport', () => {
     const message = Message.fakeExcept(
       'sentAt',
       'failedAt',
+      'queuedAt',
       'deliveredAt',
       'result'
     );
-    message.transport = 'echo';
+    message.transport = 'smssync';
 
     message.send((error, sent) => {
       //assert results
       expect(error).to.not.exist;
       expect(sent).to.exist;
       expect(sent._id).to.exist;
-      expect(sent.transport).to.exist.and.be.equal('echo');
+      expect(sent.transport).to.exist.and.be.equal('smssync');
       expect(sent.sentAt).to.exist;
-      expect(sent.deliveredAt).to.exist;
+      expect(sent.queuedAt).to.exist;
+      expect(sent.deliveredAt).to.not.exist;
       expect(sent.failedAt).to.not.exist;
       expect(sent.result).to.exist;
       expect(sent.result.success).to.exist;

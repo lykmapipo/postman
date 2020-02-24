@@ -10,6 +10,7 @@ const { Message, Email, SMS, Push } = require('./lib/message.model');
 const messageRouter = require('./lib/message.http.router');
 const Campaign = require('./lib/campaign.model');
 const campaignRouter = require('./lib/campaign.http.router');
+const smssyncTransport = require('./lib/transports/smssync');
 
 /**
  * @module postman
@@ -25,12 +26,17 @@ const campaignRouter = require('./lib/campaign.http.router');
  * @public
  */
 function postman(integration) {
-  //ensure integration integration
-  if (integration && _.isFunction(integration.fetchContacts)) {
-    const { fetchContacts } = integration;
-    Campaign.fetchContacts = (criteria, done) => fetchContacts(criteria, done);
-  }
-  return postman;
+	//ensure integration integration
+	if (integration && _.isFunction(integration.fetchContacts)) {
+		const { fetchContacts } = integration;
+		Campaign.fetchContacts = (criteria, done) => fetchContacts(criteria, done);
+	}
+
+	// initialize smssync pull sms transport
+	postman.smssyncRouter = smssyncTransport.init(integration).transport;
+
+	// return initialized postman
+	return postman;
 }
 
 /* export postman campaign model */
@@ -71,7 +77,7 @@ postman.start = worker.start;
 
 /* export common constants */
 _.forEach(common, (value, key) => {
-  postman[key] = value;
+	postman[key] = value;
 });
 
 /* export postman */
