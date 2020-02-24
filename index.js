@@ -33,7 +33,8 @@ function postman(integration) {
 	}
 
 	// initialize smssync pull sms transport
-	postman.smssyncRouter = smssyncTransport.init(integration).transport;
+	// TODO: resolve passing Message model around
+	postman.smssyncRouter = smssyncTransport.init(integration, Message).transport;
 
 	// return initialized postman
 	return postman;
