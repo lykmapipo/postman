@@ -52,13 +52,13 @@
     "jshint-stylish": "^2.2.1",
     "lodash.template": "^4.5.0",
     "mocha": "^7.0.1",
-    "mongoose": ">=5.9.1",
+    "mongoose": ">=5.9.2",
     "prettier": "^1.19.1",
     "shelljs": "^0.8.3",
     "supertest": "^4.0.2"
   },
   "peerDependencies": {
-    "mongoose": ">=5.9.1"
+    "mongoose": ">=5.9.2"
   },
   "dependencies": {
     "@lykmapipo/common": ">=0.30.5",
@@ -70,7 +70,7 @@
     "@lykmapipo/mongoose-exportable": ">=0.3.22",
     "@lykmapipo/phone": ">=0.5.17",
     "@lykmapipo/tz-ega-sms": ">=0.5.9",
-    "async": ">=3.1.1",
+    "async": ">=3.2.0",
     "bipsms": ">=0.5.8",
     "country-data": "0.0.31",
     "is-html": ">=2.0.0",
@@ -79,7 +79,7 @@
     "mongoose-kue": ">=0.9.12",
     "mongoose-rest-actions": ">=0.29.16",
     "node-gcm": ">=1.0.2",
-    "nodemailer": ">=6.4.2"
+    "nodemailer": ">=6.4.3"
   },
   "engines": {
     "node": ">=8.6.0",
