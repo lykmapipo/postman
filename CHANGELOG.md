@@ -1,3 +1,17 @@
+#### 0.17.0 (2020-02-24)
+
+##### Chores
+
+* **deps:**  force latest version & audit fix ([02549e87](https://github.com/lykmapipo/postman/commit/02549e874a31dbc6e62f395fef4f512a925c21a5))
+* **env:**  add smssync configs ([9a784bdc](https://github.com/lykmapipo/postman/commit/9a784bdc517cfa36102d092d3bbe7565b4ef1477))
+
+##### New Features
+
+* **transport:**  add smssync transport ([241abc19](https://github.com/lykmapipo/postman/commit/241abc19216a345d078090b320c5b19d24f5fdab))
+* **transports:**
+  *  ignore queue for pull transport ([8da8d2d3](https://github.com/lykmapipo/postman/commit/8da8d2d34d0dd2cffd9c4196478df0a2ae972341))
+  *  add initial smssync transport ([6983d6f5](https://github.com/lykmapipo/postman/commit/6983d6f5e12d4b06aea5f70106782e052f19c994))
+
 #### 0.16.7 (2020-02-16)
 
 ##### Chores
