@@ -80,7 +80,7 @@
     "mongoose-rest-actions": ">=0.29.16",
     "node-gcm": ">=1.0.2",
     "nodemailer": ">=6.4.3",
-    "smssync": ">=0.3.0"
+    "smssync": ">=0.3.1"
   },
   "engines": {
     "node": ">=8.6.0",
