@@ -41,7 +41,7 @@
   ],
   "devDependencies": {
     "@benmaruchu/faker": "^4.3.0",
-    "@lykmapipo/express-test-helpers": "^0.8.17",
+    "@lykmapipo/express-test-helpers": "^0.8.18",
     "@lykmapipo/mongoose-test-helpers": ">=0.7.36",
     "chai": "^4.2.0",
     "grunt": "^1.0.4",
