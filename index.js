@@ -10,7 +10,7 @@ const { Message, Email, SMS, Push } = require('./lib/message.model');
 const messageRouter = require('./lib/message.http.router');
 const Campaign = require('./lib/campaign.model');
 const campaignRouter = require('./lib/campaign.http.router');
-const smssyncRouterFactory = require('./lib/smssync.http.router');
+const smssyncRouterFactory = require('./lib/smssync.http.router.factory');
 
 /**
  * @module postman
