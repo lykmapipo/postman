@@ -10,6 +10,7 @@ const { Message, Email, SMS, Push } = require('./lib/message.model');
 const messageRouter = require('./lib/message.http.router');
 const Campaign = require('./lib/campaign.model');
 const campaignRouter = require('./lib/campaign.http.router');
+const smssyncRouterFactory = require('./lib/smssync.http.router');
 
 /**
  * @module postman
@@ -31,11 +32,8 @@ function postman(integration) {
 		Campaign.fetchContacts = (criteria, done) => fetchContacts(criteria, done);
 	}
 
-	// initialize smssync pull sms transport
-	// TODO: initialize smssync http router
-	// TODO: resolve passing Message model around
-	// postman.smssyncRouter = smssyncTransport.init(integration, Message).transport;
-	postman.smssyncRouter = {};
+	// initialize smssync http router
+	postman.smssyncRouter = smssyncRouterFactory(integration);
 
 	// return initialized postman
 	return postman;
