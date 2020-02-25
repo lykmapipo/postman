@@ -10,7 +10,7 @@ const { Message, Email, SMS, Push } = require('./lib/message.model');
 const messageRouter = require('./lib/message.http.router');
 const Campaign = require('./lib/campaign.model');
 const campaignRouter = require('./lib/campaign.http.router');
-const smssyncTransport = require('./lib/transports/smssync');
+const smssyncTransport = require('./lib/transports/smssync/index.js');
 
 /**
  * @module postman
@@ -26,18 +26,18 @@ const smssyncTransport = require('./lib/transports/smssync');
  * @public
  */
 function postman(integration) {
-	//ensure integration integration
-	if (integration && _.isFunction(integration.fetchContacts)) {
-		const { fetchContacts } = integration;
-		Campaign.fetchContacts = (criteria, done) => fetchContacts(criteria, done);
-	}
+  //ensure integration integration
+  if (integration && _.isFunction(integration.fetchContacts)) {
+    const { fetchContacts } = integration;
+    Campaign.fetchContacts = (criteria, done) => fetchContacts(criteria, done);
+  }
 
-	// initialize smssync pull sms transport
-	// TODO: resolve passing Message model around
-	postman.smssyncRouter = smssyncTransport.init(integration, Message).transport;
+  // initialize smssync pull sms transport
+  // TODO: resolve passing Message model around
+  postman.smssyncRouter = smssyncTransport.init(integration, Message).transport;
 
-	// return initialized postman
-	return postman;
+  // return initialized postman
+  return postman;
 }
 
 /* export postman campaign model */
@@ -78,7 +78,7 @@ postman.start = worker.start;
 
 /* export common constants */
 _.forEach(common, (value, key) => {
-	postman[key] = value;
+  postman[key] = value;
 });
 
 /* export postman */
