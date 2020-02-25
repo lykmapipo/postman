@@ -378,4 +378,16 @@ describe('Message Schema', () => {
     expect(options.options.type.name).to.be.equal('Mixed');
     expect(options.options.fake).to.exist;
   });
+
+  it('should have metadata field', function() {
+    const metadata = Message.path('metadata');
+
+    expect(metadata).to.exist;
+    expect(metadata).to.be.an.instanceof(SchemaTypes.Mixed);
+    expect(metadata.instance).to.be.equal('Mixed');
+    expect(metadata).to.be.an('object');
+    expect(metadata.options.type).to.be.a('function');
+    expect(metadata.options.type.name).to.be.equal('Mixed');
+    expect(metadata.options.fake).to.exist;
+  });
 });
