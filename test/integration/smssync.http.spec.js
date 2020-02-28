@@ -1,11 +1,12 @@
 'use strict';
 
 /* jshint camelcase:false */
-
+const _ = require('lodash');
 const {
 	clear: clearHttp,
 	mount,
 	testPost,
+	testGet,
 } = require('@lykmapipo/express-test-helpers');
 const {
 	clear: clearDatabase,
@@ -14,6 +15,7 @@ const {
 
 const {
 	sms,
+	provideUnsent,
 	fetchContacts,
 	onMessageReceived,
 } = require('../fixtures/integration');
@@ -26,6 +28,14 @@ const { smssyncRouter } = require('../..')({
 describe('SMSSync Http API', () => {
 	before(() => clearHttp());
 	before(done => clearDatabase(done));
+
+	let unsent;
+	before(done => {
+		provideUnsent({ transport: 'smssync' }, (error, message) => {
+			unsent = message;
+			done(error, message);
+		});
+	});
 
 	before(() => {
 		mount(smssyncRouter);
@@ -45,15 +55,34 @@ describe('SMSSync Http API', () => {
 			});
 	});
 
+	it('should return sms to be sent by device', done => {
+		testGet('/smssync?secret=smssync', sms)
+			.expect('Content-Type', /json/)
+			.end((error, { body }) => {
+				expect(body).to.exist;
+				expect(body.payload).to.exist;
+				expect(body.payload.task).to.exist;
+				expect(body.payload.task).to.be.equal('send');
+				expect(body.payload.secret).to.exist;
+				expect(body.payload.secret).to.be.equal('smssync');
+				expect(body.payload.messages[0].to).to.exist.and.be.equal(
+					_.first(unsent.to)
+				);
+				expect(body.payload.messages[0].message).to.exist.and.be.equal(
+					unsent.body
+				);
+				expect(body.payload.messages[0].uuid).to.be.exist.and.be.equal(
+					[unsent._id, _.first(unsent.to)].join(':')
+				);
+				done(error, body);
+			});
+	});
+
 	it('should receive queued sms to be sent by a device', done => {
 		done();
 	});
 
 	it('should receive delivery reports sent by a device', done => {
-		done();
-	});
-
-	it('should return sms to be sent by device', done => {
 		done();
 	});
 

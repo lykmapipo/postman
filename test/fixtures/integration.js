@@ -2,7 +2,9 @@
 
 /* jshint camelcase:false */
 
+const { mergeObjects } = require('@lykmapipo/common');
 const { expect, faker } = require('@lykmapipo/mongoose-test-helpers');
+const { TYPE_SMS, STATE_UNKNOWN, SEND_MODE_PULL, Message } = require('../..');
 
 exports.contacts = [
 	{
@@ -18,6 +20,24 @@ exports.sms = {
 	secret: 'smssync',
 	device_id: faker.phone.phoneNumber(),
 	sent_timestamp: faker.date.past(),
+};
+
+exports.provideUnsent = (optns, done) => {
+	const sample = mergeObjects(
+		{
+			from: faker.phone.phoneNumber(),
+			sender: faker.phone.phoneNumber(),
+			subject: faker.lorem.sentence(),
+			body: faker.lorem.sentence(),
+			to: faker.phone.phoneNumber(),
+			mode: SEND_MODE_PULL,
+			state: STATE_UNKNOWN,
+			hash: faker.random.uuid(),
+			type: TYPE_SMS,
+		},
+		optns
+	);
+	return Message.create(sample, done);
 };
 
 exports.reply = {
