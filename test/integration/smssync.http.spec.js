@@ -102,15 +102,25 @@ describe.only('SMSSync Http API', () => {
 			});
 	});
 
-	it('should receive delivery reports sent by a device', done => {
-		done();
-	});
-
 	it('should return sms waiting delivery report to a device', done => {
-		done();
+		testGet('/smssync?task=result&secret=smssync')
+			.set('Accept', 'application/json')
+			.expect(200)
+			.expect('Content-Type', /json/)
+			.end((error, { body }) => {
+				expect(error).to.not.exist;
+
+				expect(body).to.exist;
+				expect(_.get(body, 'message_uuids')).to.exist;
+				expect(_.get(body, 'message_uuids')[0]).to.be.exist.and.be.equal(
+					[unsent._id, _.first(unsent.to)].join(':')
+				);
+
+				done(error, body);
+			});
 	});
 
-	it('should reject request with no secret key sent by device', done => {
+	it('should receive delivery reports sent by a device', done => {
 		done();
 	});
 
