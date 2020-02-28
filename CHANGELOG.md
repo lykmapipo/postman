@@ -1,3 +1,9 @@
+#### 0.18.2 (2020-02-28)
+
+##### Bug Fixes
+
+* **smssync:**  ignore queued timestamp for pull transport ([25f38885](https://github.com/lykmapipo/postman/commit/25f388854edc18c52fd550599a565975f589e858))
+
 #### 0.18.0 (2020-02-28)
 
 ##### Chores
