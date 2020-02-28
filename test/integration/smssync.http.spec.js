@@ -1,6 +1,7 @@
 'use strict';
 
 /* jshint camelcase:false */
+
 const _ = require('lodash');
 const {
 	clear: clearHttp,
@@ -25,7 +26,7 @@ const { smssyncRouter } = require('../..')({
 	onMessageReceived,
 });
 
-describe('SMSSync Http API', () => {
+describe.only('SMSSync Http API', () => {
 	before(() => clearHttp());
 	before(done => clearDatabase(done));
 
@@ -44,6 +45,7 @@ describe('SMSSync Http API', () => {
 	it('should receive sync sms from a device', done => {
 		testPost('/smssync?secret=smssync', sms)
 			.expect('Content-Type', /json/)
+			.expect(200)
 			.end((error, { body }) => {
 				expect(error).to.not.exist;
 				expect(body).to.exist;
@@ -58,6 +60,7 @@ describe('SMSSync Http API', () => {
 	it('should return sms to be sent by device', done => {
 		testGet('/smssync?secret=smssync', sms)
 			.expect('Content-Type', /json/)
+			.expect(200)
 			.end((error, { body }) => {
 				expect(body).to.exist;
 				expect(body.payload).to.exist;
@@ -79,7 +82,24 @@ describe('SMSSync Http API', () => {
 	});
 
 	it('should receive queued sms to be sent by a device', done => {
-		done();
+		const queued = {
+			queued_messages: [[unsent._id, _.first(unsent.to)].join(':')],
+		};
+
+		testPost('/smssync?task=sent&secret=smssync')
+			.send(queued)
+			.expect('Content-Type', /json/)
+			.expect(200)
+			.end((error, { body }) => {
+				expect(error).to.not.exist;
+				expect(body).to.exist;
+				expect(_.get(body, 'queued_messages')).to.exist;
+				expect(_.get(body, 'queued_messages')).to.have.same.members(
+					_.get(queued, 'queued_messages')
+				);
+
+				done(error, body);
+			});
 	});
 
 	it('should receive delivery reports sent by a device', done => {
@@ -92,6 +112,25 @@ describe('SMSSync Http API', () => {
 
 	it('should reject request with no secret key sent by device', done => {
 		done();
+	});
+
+	it('should reject request with no secret key sent by device', done => {
+		testGet('/smssync')
+			.expect('Content-Type', /json/)
+			.expect(200)
+			.end((error, { body }) => {
+				expect(error).to.not.exist;
+				expect(body).to.exist;
+
+				expect(body).to.exist;
+				expect(body.payload).to.exist;
+				expect(body.payload.success).to.exist;
+				expect(body.payload.error).to.exist;
+				expect(body.payload.success).to.be.false;
+				expect(body.payload.error).to.be.equal('Secret Key Mismatch');
+
+				done();
+			});
 	});
 
 	after(() => clearHttp());
