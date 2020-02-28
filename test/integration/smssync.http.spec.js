@@ -26,7 +26,7 @@ const { smssyncRouter } = require('../..')({
 	onMessageReceived,
 });
 
-describe.only('SMSSync Http API', () => {
+describe('SMSSync Http API', () => {
 	before(() => clearHttp());
 	before(done => clearDatabase(done));
 
@@ -86,8 +86,7 @@ describe.only('SMSSync Http API', () => {
 			queued_messages: [[unsent._id, _.first(unsent.to)].join(':')],
 		};
 
-		testPost('/smssync?task=sent&secret=smssync')
-			.send(queued)
+		testPost('/smssync?task=sent&secret=smssync', queued)
 			.expect('Content-Type', /json/)
 			.expect(200)
 			.end((error, { body }) => {
@@ -121,7 +120,31 @@ describe.only('SMSSync Http API', () => {
 	});
 
 	it('should receive delivery reports sent by a device', done => {
-		done();
+		const delivered = {
+			message_result: [
+				{
+					uuid: [unsent._id, _.first(unsent.to)].join(':'),
+					sent_result_code: 0,
+					sent_result_message: 'SMSSync Message Sent',
+					delivered_result_code: -1,
+					delivered_result_message: '',
+				},
+			],
+		};
+
+		testPost('/smssync?task=result&secret=smssync', delivered)
+			.expect(200)
+			.expect('Content-Type', /json/)
+			.end((error, { body }) => {
+				expect(error).to.not.exist;
+				expect(body).to.exist;
+
+				expect(body).to.exist;
+				expect(body.payload).to.exist;
+				expect(body.payload.success).to.be.true;
+
+				done(error, body);
+			});
 	});
 
 	it('should reject request with no secret key sent by device', done => {
