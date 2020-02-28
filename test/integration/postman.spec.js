@@ -1,12 +1,14 @@
 'use strict';
 
 /* dependencies */
-const { expect } = require('chai');
-const faker = require('@benmaruchu/faker');
-const postman = require('../..')({
-  fetchContacts: (criteria, done) => done(null, []),
+const { expect, faker } = require('@lykmapipo/mongoose-test-helpers');
+
+const { fetchContacts, onMessageReceived } = require('../fixtures/integration');
+const postman = require('../..');
+const { Email, SMS, Campaign } = postman({
+  fetchContacts,
+  onMessageReceived,
 });
-const { Email, SMS, Campaign } = postman;
 
 describe('postman', () => {
   it('should be a factory', () => {

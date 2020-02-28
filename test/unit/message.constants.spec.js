@@ -1,9 +1,8 @@
 'use strict';
 
 /* dependencies */
-const path = require('path');
-const { expect } = require('chai');
-const { Message } = require(path.join(__dirname, '..', '..'));
+const { expect } = require('@lykmapipo/mongoose-test-helpers');
+const { Message } = require('../..');
 
 describe('Message Constants', () => {
   describe('schema options', () => {

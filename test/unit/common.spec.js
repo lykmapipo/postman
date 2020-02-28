@@ -1,7 +1,7 @@
 'use strict';
 
 /* dependencies */
-const { expect } = require('chai');
+const { expect } = require('@lykmapipo/mongoose-test-helpers');
 const { toE164 } = require('../..');
 
 describe('utils', () => {

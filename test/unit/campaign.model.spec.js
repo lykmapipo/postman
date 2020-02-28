@@ -1,9 +1,8 @@
 'use strict';
 
 /* dependencies */
-const path = require('path');
 const { expect } = require('@lykmapipo/mongoose-test-helpers');
-const { Campaign } = require(path.join(__dirname, '..', '..'));
+const { Campaign } = require('../..');
 
 describe('Campaign Validation', () => {
   it('should validate all fields', done => {

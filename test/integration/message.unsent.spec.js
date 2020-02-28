@@ -1,10 +1,8 @@
 'use strict';
 
 /* dependencies */
-const path = require('path');
-const { expect } = require('chai');
-const { clear } = require('@lykmapipo/mongoose-test-helpers');
-const { Message } = require(path.join(__dirname, '..', '..'));
+const { clear, expect } = require('@lykmapipo/mongoose-test-helpers');
+const { Message } = require('../..');
 let messages = [];
 
 describe('Message#unsent', () => {

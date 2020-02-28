@@ -1,10 +1,9 @@
 'use strict';
 
 /* dependencies */
-const path = require('path');
 const { SchemaTypes } = require('@lykmapipo/mongoose-common');
 const { expect } = require('@lykmapipo/mongoose-test-helpers');
-const { Campaign } = require(path.join(__dirname, '..', '..'));
+const { Campaign } = require('../..');
 
 describe('Campaign Schema', () => {
   it('should have form field', () => {

@@ -1,29 +1,48 @@
 'use strict';
 
-const { clear: clearHttp, mount } = require('@lykmapipo/express-test-helpers');
+/* jshint camelcase:false */
+
+const {
+	clear: clearHttp,
+	mount,
+	testPost,
+} = require('@lykmapipo/express-test-helpers');
 const {
 	clear: clearDatabase,
 	expect,
 } = require('@lykmapipo/mongoose-test-helpers');
-const postman = require('../..');
+
+const {
+	sms,
+	fetchContacts,
+	onMessageReceived,
+} = require('../fixtures/integration');
+
+const { smssyncRouter } = require('../..')({
+	fetchContacts,
+	onMessageReceived,
+});
 
 describe('SMSSync Http API', () => {
 	before(() => clearHttp());
 	before(done => clearDatabase(done));
 
 	before(() => {
-		const fetchContacts = (criteria, done) => done(null, []);
-		const onMessageReceived = (message, done) => done(null, message);
-		const { smssyncRouter } = postman({
-			fetchContacts,
-			onMessageReceived,
-		});
-		expect(smssyncRouter).to.exist;
 		mount(smssyncRouter);
 	});
 
 	it('should receive sync sms from a device', done => {
-		done();
+		testPost('/smssync?secret=smssync', sms)
+			.expect('Content-Type', /json/)
+			.end((error, { body }) => {
+				expect(error).to.not.exist;
+				expect(body).to.exist;
+				expect(body.payload).to.exist;
+				expect(body.payload.success).to.be.true;
+				expect(body.payload.task).to.be.equal('send');
+				expect(body.payload.messages).to.have.length.at.least(1);
+				done(error, body);
+			});
 	});
 
 	it('should receive queued sms to be sent by a device', done => {
