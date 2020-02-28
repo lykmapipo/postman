@@ -1,3 +1,30 @@
+#### 0.18.0 (2020-02-28)
+
+##### Chores
+
+* **deps:**  force latest version & audit fix ([9fca793b](https://github.com/lykmapipo/postman/commit/9fca793b6be57e5f92fd3eb0897eeb3091cc5b56))
+
+##### New Features
+
+* **smssync:**
+  *  process delivered messages on http post ([07840722](https://github.com/lykmapipo/postman/commit/078407222e5338c5d6379e8c86a85f2c44b34c2b))
+  *  return undelivered messages on http get ([9a3d1f27](https://github.com/lykmapipo/postman/commit/9a3d1f2727bde11b62eec60892980f821980da18))
+  *  process queued messages on http post ([a8697ddf](https://github.com/lykmapipo/postman/commit/a8697ddfb26bfa4150ff47f52d4c91a4329b7a3f))
+  *  provider unsent messages on http get ([5f83740c](https://github.com/lykmapipo/postman/commit/5f83740c89eb29ce844a591ecb6a7b8e5a3250a9))
+  *  initialize router factory ([09219db8](https://github.com/lykmapipo/postman/commit/09219db8a5a9761dd38b2cc00513f792291eb0a8))
+* **transports:**  add smssync router factory ([05b38239](https://github.com/lykmapipo/postman/commit/05b382392d998dfef69be25155fa2a83a36db64b))
+* **message:**  add metadata schema path ([407349fc](https://github.com/lykmapipo/postman/commit/407349fc9f2811ef36852732dc54033d6f4bd588))
+
+##### Refactors
+
+* **transports:**  remove smssync router from transport ([f7c1f8c6](https://github.com/lykmapipo/postman/commit/f7c1f8c68773c91e202313bad239821800254fc2))
+
+##### Tests
+
+* **smssync:**
+  *  add initialization blocks ([3e5f6299](https://github.com/lykmapipo/postman/commit/3e5f62998cc3ef38e1f911b4486fd2c5eded2472))
+  *  add http api spec definition ([2109d4f6](https://github.com/lykmapipo/postman/commit/2109d4f64e6cdfe0d0c14539f51d121fede5fdcc))
+
 #### 0.17.1 (2020-02-24)
 
 ##### Chores
