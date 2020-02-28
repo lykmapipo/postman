@@ -28,7 +28,7 @@ describe('smssync transport', () => {
       expect(sent._id).to.exist;
       expect(sent.transport).to.exist.and.be.equal('smssync');
       expect(sent.sentAt).to.not.exist;
-      expect(sent.queuedAt).to.exist;
+      expect(sent.queuedAt).to.not.exist;
       expect(sent.deliveredAt).to.not.exist;
       expect(sent.failedAt).to.not.exist;
       expect(sent.result).to.exist;
