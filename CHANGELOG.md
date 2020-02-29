@@ -1,3 +1,14 @@
+#### 0.18.3 (2020-02-29)
+
+##### Chores
+
+* **release:**  compile latest source & release notes ([f54194f7](https://github.com/lykmapipo/postman/commit/f54194f7ffc562a1601330e270b77316688673d9))
+
+##### Bug Fixes
+
+* **message:**  return message on queue pull mode transport ([2b671d74](https://github.com/lykmapipo/postman/commit/2b671d74dd126d3644b763dceedcceb07f37b89e))
+* **smssync:**  ignore queued timestamp for pull transport ([25f38885](https://github.com/lykmapipo/postman/commit/25f388854edc18c52fd550599a565975f589e858))
+
 #### 0.18.2 (2020-02-28)
 
 ##### Bug Fixes
