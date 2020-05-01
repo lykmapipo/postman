@@ -1,3 +1,9 @@
+#### 0.18.8 (2020-05-01)
+
+##### Tests
+
+*  fix E.164 format assertions ([78ada96a](https://github.com/lykmapipo/postman/commit/78ada96a67cef19134eddea247ea0269f282def8))
+
 #### 0.18.7 (2020-04-27)
 
 ##### Chores
