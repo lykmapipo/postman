@@ -11,7 +11,7 @@ describe('utils', () => {
   });
 
   it('should use default country code', () => {
-    const phoneNumber = toE164('0714969698', 'TZ');
+    const phoneNumber = toE164('0714969698');
     expect(phoneNumber).to.exist;
     expect(phoneNumber).to.be.eql('255714969698');
   });
