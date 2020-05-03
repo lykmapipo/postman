@@ -1,3 +1,9 @@
+#### 0.18.10 (2020-05-03)
+
+##### Chores
+
+* **deps:**  force latest version & audit fix ([cfa2d0d0](https://github.com/lykmapipo/postman/commit/cfa2d0d06fcdeaffb91841cdf3c1e3f0de41e428))
+
 #### 0.18.9 (2020-05-03)
 
 ##### Chores
