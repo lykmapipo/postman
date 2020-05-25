@@ -1,3 +1,9 @@
+#### 0.18.13 (2020-05-25)
+
+##### Refactors
+
+*  remove index from message ([ecdbb121](https://github.com/lykmapipo/postman/commit/ecdbb121d60301a88f180505ca06ceb89ea620af))
+
 #### 0.18.12 (2020-05-20)
 
 ##### Chores
