@@ -5,14 +5,14 @@ const { clear, expect } = require('@lykmapipo/mongoose-test-helpers');
 const { Message } = require('../..');
 
 describe('infobip transport', () => {
-  before(done => clear(done));
+  before((done) => clear(done));
 
-  describe('debug', function() {
+  describe('debug', function () {
     before(() => {
       process.env.DEBUG = true;
     });
 
-    it('should be able to send message', done => {
+    it('should be able to send message', (done) => {
       const message = Message.fakeExcept('sentAt', 'failedAt', 'deliveredAt');
       message.transport = 'infobip-sms';
 
@@ -38,12 +38,12 @@ describe('infobip transport', () => {
   });
 
   if (process.env.SMS_INFOBIP_TEST_RECEIVER) {
-    describe('live', function() {
+    describe('live', function () {
       before(() => {
         process.env.DEBUG = false;
       });
 
-      it('should be able to send message', done => {
+      it('should be able to send message', (done) => {
         const message = new Message({
           to: process.env.SMS_INFOBIP_TEST_RECEIVER,
           body: 'Test SMS',
@@ -72,5 +72,5 @@ describe('infobip transport', () => {
     });
   }
 
-  after(done => clear(done));
+  after((done) => clear(done));
 });

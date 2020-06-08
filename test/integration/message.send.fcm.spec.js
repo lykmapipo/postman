@@ -5,14 +5,14 @@ const { clear, expect } = require('@lykmapipo/mongoose-test-helpers');
 const { Message, Push } = require('../..');
 
 describe('fcm transport', () => {
-  before(done => clear(done));
+  before((done) => clear(done));
 
-  describe('debug', function() {
+  describe('debug', function () {
     before(() => {
       process.env.DEBUG = true;
     });
 
-    it('should be able to send message', done => {
+    it('should be able to send message', (done) => {
       const message = Message.fakeExcept('sentAt', 'failedAt', 'deliveredAt');
       message.transport = 'fcm-push';
 
@@ -38,12 +38,12 @@ describe('fcm transport', () => {
   });
 
   if (process.env.PUSH_FCM_TEST_REGISTRATION_TOKEN) {
-    describe('live', function() {
+    describe('live', function () {
       before(() => {
         process.env.DEBUG = false;
       });
 
-      it('should be able to send message', done => {
+      it('should be able to send message', (done) => {
         const message = new Push({
           to: process.env.PUSH_FCM_TEST_REGISTRATION_TOKEN,
           subject: 'Test',
@@ -76,5 +76,5 @@ describe('fcm transport', () => {
     });
   }
 
-  after(done => clear(done));
+  after((done) => clear(done));
 });

@@ -8,11 +8,7 @@ const {
   clear: clearDatabase,
   expect,
 } = require('@lykmapipo/mongoose-test-helpers');
-const {
-  Message,
-  messageRouter,
-} = require('../..');
-
+const { Message, messageRouter } = require('../..');
 
 describe.skip('Message Rest API', () => {
   const message = Message.fake();
@@ -26,9 +22,9 @@ describe.skip('Message Rest API', () => {
 
   before(() => clearHttp());
 
-  before(done => clearDatabase(done));
+  before((done) => clearDatabase(done));
 
-  it('should handle HTTP POST on /messages', done => {
+  it('should handle HTTP POST on /messages', (done) => {
     const { testPost } = testRouter(options, messageRouter);
     testPost({ ...message.toObject() })
       .expect(201)
@@ -43,7 +39,7 @@ describe.skip('Message Rest API', () => {
       });
   });
 
-  it('should handle HTTP GET on /messages', done => {
+  it('should handle HTTP GET on /messages', (done) => {
     const { testGet } = testRouter(options, messageRouter);
     testGet()
       .expect(200)
@@ -62,12 +58,12 @@ describe.skip('Message Rest API', () => {
       });
   });
 
-  it('should handle GET /messages/schema', done => {
+  it('should handle GET /messages/schema', (done) => {
     const { testGetSchema } = testRouter(options, messageRouter);
     testGetSchema().expect(200, done);
   });
 
-  it('should handle GET /messages/export', done => {
+  it('should handle GET /messages/export', (done) => {
     const { testGetExport } = testRouter(options, messageRouter);
     testGetExport()
       .expect('Content-Type', 'text/csv; charset=utf-8')
@@ -77,7 +73,7 @@ describe.skip('Message Rest API', () => {
       .expect(200, done);
   });
 
-  it('should handle HTTP GET on /messages/:id', done => {
+  it('should handle HTTP GET on /messages/:id', (done) => {
     const { testGet } = testRouter(options, messageRouter);
     const params = { id: message._id.toString() };
     testGet(params)
@@ -93,7 +89,7 @@ describe.skip('Message Rest API', () => {
       });
   });
 
-  it('should handle HTTP PATCH on /messages/:id', done => {
+  it('should handle HTTP PATCH on /messages/:id', (done) => {
     const { testPatch } = testRouter(options, messageRouter);
     const { subject } = message.fakeOnly('subject');
     const params = { id: message._id.toString() };
@@ -102,7 +98,7 @@ describe.skip('Message Rest API', () => {
       .expect(405, done);
   });
 
-  it('should handle HTTP PUT on /messages/:id', done => {
+  it('should handle HTTP PUT on /messages/:id', (done) => {
     const { testPut } = testRouter(options, messageRouter);
     const { subject } = message.fakeOnly('subject');
     const params = { id: message._id.toString() };
@@ -111,7 +107,7 @@ describe.skip('Message Rest API', () => {
       .expect(405, done);
   });
 
-  it('should handle HTTP DELETE on /messages/:id', done => {
+  it('should handle HTTP DELETE on /messages/:id', (done) => {
     const { testDelete } = testRouter(options, messageRouter);
     const params = { id: message._id.toString() };
     testDelete(params)
@@ -129,5 +125,5 @@ describe.skip('Message Rest API', () => {
 
   after(() => clearHttp());
 
-  after(done => clearDatabase(done));
+  after((done) => clearDatabase(done));
 });

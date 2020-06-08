@@ -5,14 +5,14 @@ const { clear, expect } = require('@lykmapipo/mongoose-test-helpers');
 const { Message } = require('../..');
 
 describe('smtp transport', () => {
-  before(done => clear(done));
+  before((done) => clear(done));
 
-  describe('debug', function() {
+  describe('debug', function () {
     before(() => {
       process.env.DEBUG = true;
     });
 
-    it('should be able to send message', done => {
+    it('should be able to send message', (done) => {
       const message = Message.fakeExcept('sentAt', 'failedAt', 'deliveredAt');
       message.transport = 'smtp';
 
@@ -38,12 +38,12 @@ describe('smtp transport', () => {
   });
 
   if (process.env.SMTP_TEST_RECEIVER) {
-    describe('live', function() {
+    describe('live', function () {
       before(() => {
         process.env.DEBUG = false;
       });
 
-      it('should be able to send text message', done => {
+      it('should be able to send text message', (done) => {
         const message = new Message({
           to: process.env.SMTP_TEST_RECEIVER,
           body: 'Test Email',
@@ -68,7 +68,7 @@ describe('smtp transport', () => {
         });
       });
 
-      it('should be able to send html message', done => {
+      it('should be able to send html message', (done) => {
         const message = new Message({
           to: process.env.SMTP_TEST_RECEIVER,
           body: '<b>Test Email<b>',
@@ -99,5 +99,5 @@ describe('smtp transport', () => {
     });
   }
 
-  after(done => clear(done));
+  after((done) => clear(done));
 });

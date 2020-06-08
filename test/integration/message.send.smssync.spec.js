@@ -9,9 +9,9 @@ describe('smssync transport', () => {
     delete process.env.DEBUG;
   });
 
-  before(done => clear(done));
+  before((done) => clear(done));
 
-  it('should be able to send message', done => {
+  it('should be able to send message', (done) => {
     const message = Message.fakeExcept(
       'sentAt',
       'failedAt',
@@ -38,7 +38,7 @@ describe('smssync transport', () => {
     });
   });
 
-  after(done => clear(done));
+  after((done) => clear(done));
 
   after(() => {
     delete process.env.DEBUG;

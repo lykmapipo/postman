@@ -6,9 +6,9 @@ const { Message } = require('../..');
 let messages = [];
 
 describe('Message#requeue', () => {
-  before(done => clear(done));
+  before((done) => clear(done));
 
-  before(done => {
+  before((done) => {
     const message = Message.fakeExcept('deliveredAt');
     messages = messages.concat(message);
     message.post(done);
@@ -16,5 +16,5 @@ describe('Message#requeue', () => {
 
   it.skip('should be able to requeue messages');
 
-  after(done => clear(done));
+  after((done) => clear(done));
 });

@@ -9,12 +9,12 @@ describe('infobip transport queue', () => {
     process.env.DEBUG = true;
   });
 
-  before(done => clear(done));
-  before(done => worker.clear(done));
-  before(done => worker.reset(done));
+  before((done) => clear(done));
+  before((done) => worker.clear(done));
+  before((done) => worker.reset(done));
   before(() => worker.start({ types: Message.TYPES }));
 
-  it('should be able to queue message', done => {
+  it('should be able to queue message', (done) => {
     const message = Message.fakeExcept(
       'sentAt',
       'failedAt',
@@ -44,19 +44,19 @@ describe('infobip transport queue', () => {
         expect(jobType).to.exist;
         done();
       })
-      .on('job queued', queued => {
+      .on('job queued', (queued) => {
         expect(queued._id).to.be.eql(message._id);
       })
-      .on('error', error => {
+      .on('error', (error) => {
         done(error);
       });
 
     message.queue();
   });
 
-  after(done => worker.clear(done));
-  after(done => worker.stop(done));
-  after(done => clear(done));
+  after((done) => worker.clear(done));
+  after((done) => worker.stop(done));
+  after((done) => clear(done));
 
   after(() => {
     delete process.env.DEBUG;

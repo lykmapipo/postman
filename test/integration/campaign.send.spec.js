@@ -22,9 +22,9 @@ describe('campaign send', () => {
     process.env.DEBUG = true;
   });
 
-  before(done => clear(done));
+  before((done) => clear(done));
 
-  it('should be able to send without fetchContacts', done => {
+  it('should be able to send without fetchContacts', (done) => {
     const to = fakeContacts();
     const channels = [CHANNEL_EMAIL, CHANNEL_PUSH];
 
@@ -44,7 +44,7 @@ describe('campaign send', () => {
     });
   });
 
-  it('should be able to send with fetchContacts', done => {
+  it('should be able to send with fetchContacts', (done) => {
     const to = fakeContacts(4);
     const channels = [CHANNEL_EMAIL, CHANNEL_PUSH];
 
@@ -66,21 +66,22 @@ describe('campaign send', () => {
     });
   });
 
-  if (process.env.PUSH_FCM_TEST_REGISTRATION_TOKEN &&
+  if (
+    process.env.PUSH_FCM_TEST_REGISTRATION_TOKEN &&
     process.env.SMTP_TEST_RECEIVER &&
-    process.env.SMS_EGA_TZ_TEST_RECEIVER) {
+    process.env.SMS_EGA_TZ_TEST_RECEIVER
+  ) {
     describe('campaign live send', () => {
-
       before(() => {
         process.env.DEBUG = false;
       });
 
-      it('should be able to send multi channel message', done => {
+      it('should be able to send multi channel message', (done) => {
         Campaign.fetchContacts = undefined;
         const to = {
           mobile: process.env.SMS_EGA_TZ_TEST_RECEIVER,
           email: process.env.SMTP_TEST_RECEIVER,
-          pushToken: process.env.PUSH_FCM_TEST_REGISTRATION_TOKEN
+          pushToken: process.env.PUSH_FCM_TEST_REGISTRATION_TOKEN,
         };
         const campaign = new Campaign({
           subject: 'Test Multi Channel Notification',
@@ -105,11 +106,10 @@ describe('campaign send', () => {
       after(() => {
         delete process.env.DEBUG;
       });
-
     });
   }
 
-  after(done => clear(done));
+  after((done) => clear(done));
 
   after(() => {
     delete process.env.DEBUG;

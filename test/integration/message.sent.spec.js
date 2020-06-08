@@ -6,15 +6,15 @@ const { Message } = require('../..');
 let messages = [];
 
 describe('Message#sent', () => {
-  before(done => clear(done));
+  before((done) => clear(done));
 
-  before(done => {
+  before((done) => {
     const message = Message.fakeExcept('failedAt', 'deliveredAt');
     messages = messages.concat(message);
     message.post(done);
   });
 
-  it('should be able to find sent messages', done => {
+  it('should be able to find sent messages', (done) => {
     Message.sent((error, sents) => {
       //assert results
       expect(error).to.not.exist;
@@ -29,7 +29,7 @@ describe('Message#sent', () => {
     });
   });
 
-  it('should be able to find sent messages', done => {
+  it('should be able to find sent messages', (done) => {
     Message.sent().exec((error, sents) => {
       //assert results
       expect(error).to.not.exist;
@@ -44,5 +44,5 @@ describe('Message#sent', () => {
     });
   });
 
-  after(done => clear(done));
+  after((done) => clear(done));
 });

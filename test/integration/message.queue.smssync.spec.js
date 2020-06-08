@@ -9,12 +9,12 @@ describe('smssync transport queue', () => {
     delete process.env.DEBUG;
   });
 
-  before(done => clear(done));
-  before(done => worker.clear(done));
-  before(done => worker.reset(done));
+  before((done) => clear(done));
+  before((done) => worker.clear(done));
+  before((done) => worker.reset(done));
   before(() => worker.start({ types: Message.TYPES }));
 
-  it('should be able to queue message', done => {
+  it('should be able to queue message', (done) => {
     const message = Message.fakeExcept(
       'sentAt',
       'failedAt',
@@ -26,7 +26,7 @@ describe('smssync transport queue', () => {
 
     // listen to queue events
     worker.queue
-      .on('job queued', queued => {
+      .on('job queued', (queued) => {
         expect(queued).to.exist;
         expect(queued._id).to.be.eql(message._id);
         expect(queued.to).to.exist;
@@ -40,16 +40,16 @@ describe('smssync transport queue', () => {
         // expect(queued.result.success).to.be.true;
         done(null, queued);
       })
-      .on('error', error => {
+      .on('error', (error) => {
         done(error);
       });
 
     message.queue();
   });
 
-  after(done => worker.clear(done));
-  after(done => worker.stop(done));
-  after(done => clear(done));
+  after((done) => worker.clear(done));
+  after((done) => worker.stop(done));
+  after((done) => clear(done));
 
   after(() => {
     delete process.env.DEBUG;

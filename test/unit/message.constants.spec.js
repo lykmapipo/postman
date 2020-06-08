@@ -48,7 +48,7 @@ describe('Message Constants', () => {
     });
   });
 
-  describe('mimes', function() {
+  describe('mimes', function () {
     it('should have text/plain', () => {
       expect(Message.MIME_TEXT).to.exist;
       expect(Message.MIME_TEXT).to.be.a('string');
@@ -76,7 +76,7 @@ describe('Message Constants', () => {
     });
   });
 
-  describe('priorities', function() {
+  describe('priorities', function () {
     it('should have low', () => {
       expect(Message.PRIORITY_LOW).to.exist;
       expect(Message.PRIORITY_LOW).to.be.a('string');

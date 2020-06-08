@@ -22,9 +22,9 @@ describe('Campaign Rest API', () => {
 
   before(() => clearHttp());
 
-  before(done => clearDatabase(done));
+  before((done) => clearDatabase(done));
 
-  it('should handle HTTP POST on /campaigns', done => {
+  it('should handle HTTP POST on /campaigns', (done) => {
     const { testPost } = testRouter(options, campaignRouter);
     testPost({ ...campaign.toObject() })
       .expect(201)
@@ -39,7 +39,7 @@ describe('Campaign Rest API', () => {
       });
   });
 
-  it('should handle HTTP GET on /campaigns', done => {
+  it('should handle HTTP GET on /campaigns', (done) => {
     const { testGet } = testRouter(options, campaignRouter);
     testGet()
       .expect(200)
@@ -58,12 +58,12 @@ describe('Campaign Rest API', () => {
       });
   });
 
-  it('should handle GET /campaigns/schema', done => {
+  it('should handle GET /campaigns/schema', (done) => {
     const { testGetSchema } = testRouter(options, campaignRouter);
     testGetSchema().expect(200, done);
   });
 
-  it('should handle GET /campaigns/export', done => {
+  it('should handle GET /campaigns/export', (done) => {
     const { testGetExport } = testRouter(options, campaignRouter);
     testGetExport()
       .expect('Content-Type', 'text/csv; charset=utf-8')
@@ -73,7 +73,7 @@ describe('Campaign Rest API', () => {
       .expect(200, done);
   });
 
-  it('should handle HTTP GET on /campaigns/:id', done => {
+  it('should handle HTTP GET on /campaigns/:id', (done) => {
     const { testGet } = testRouter(options, campaignRouter);
     const params = { id: campaign._id.toString() };
     testGet(params)
@@ -89,7 +89,7 @@ describe('Campaign Rest API', () => {
       });
   });
 
-  it('should handle HTTP PATCH on /campaigns/:id', done => {
+  it('should handle HTTP PATCH on /campaigns/:id', (done) => {
     const { testPatch } = testRouter(options, campaignRouter);
     const { subject } = campaign.fakeOnly('subject');
     const params = { id: campaign._id.toString() };
@@ -98,7 +98,7 @@ describe('Campaign Rest API', () => {
       .expect(200, done);
   });
 
-  it('should handle HTTP PUT on /campaigns/:id', done => {
+  it('should handle HTTP PUT on /campaigns/:id', (done) => {
     const { testPut } = testRouter(options, campaignRouter);
     const { subject } = campaign.fakeOnly('subject');
     const params = { id: campaign._id.toString() };
@@ -107,7 +107,7 @@ describe('Campaign Rest API', () => {
       .expect(200, done);
   });
 
-  it('should handle HTTP DELETE on /campaigns/:id', done => {
+  it('should handle HTTP DELETE on /campaigns/:id', (done) => {
     const { testDelete } = testRouter(options, campaignRouter);
     const params = { id: campaign._id.toString() };
     testDelete(params)
@@ -125,5 +125,5 @@ describe('Campaign Rest API', () => {
 
   after(() => clearHttp());
 
-  after(done => clearDatabase(done));
+  after((done) => clearDatabase(done));
 });

@@ -20,12 +20,12 @@ describe('campaign queue', () => {
     process.env.DEBUG = true;
   });
 
-  before(done => clear(done));
-  before(done => worker.clear(done));
-  before(done => worker.reset(done));
+  before((done) => clear(done));
+  before((done) => worker.clear(done));
+  before((done) => worker.reset(done));
   before(() => worker.start({ types: Message.TYPES }));
 
-  it('should be able to queue campaign send', done => {
+  it('should be able to queue campaign send', (done) => {
     const to = fakeContacts();
 
     Campaign.fetchContacts = undefined;
@@ -47,19 +47,19 @@ describe('campaign queue', () => {
         expect(jobType).to.exist;
         done();
       })
-      .on('job queued', queued => {
+      .on('job queued', (queued) => {
         expect(queued._id).to.be.eql(campaign._id);
       })
-      .on('error', error => {
+      .on('error', (error) => {
         done(error);
       });
 
     campaign.queue();
   });
 
-  after(done => worker.clear(done));
-  after(done => worker.stop(done));
-  after(done => clear(done));
+  after((done) => worker.clear(done));
+  after((done) => worker.stop(done));
+  after((done) => clear(done));
 
   after(() => {
     delete process.env.DEBUG;

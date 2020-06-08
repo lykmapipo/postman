@@ -6,9 +6,9 @@ const { Message } = require('../..');
 let messages = [];
 
 describe('Message#resend', () => {
-  before(done => clear(done));
+  before((done) => clear(done));
 
-  before(done => {
+  before((done) => {
     const message = Message.fakeExcept('deliveredAt');
     messages = messages.concat(message);
     message.post(done);
@@ -16,5 +16,5 @@ describe('Message#resend', () => {
 
   it.skip('should be able to resend messages');
 
-  after(done => clear(done));
+  after((done) => clear(done));
 });
