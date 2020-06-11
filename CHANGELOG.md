@@ -1,3 +1,13 @@
+#### 0.18.14 (2020-06-11)
+
+##### Chores
+
+* **deps:**  force latest version & audit fix ([ad46e877](https://github.com/lykmapipo/postman/commit/ad46e8771a7066508bf7d9c7d58da9a339f43a5e))
+
+##### Code Style Changes
+
+*  apply code format ([ae19d80a](https://github.com/lykmapipo/postman/commit/ae19d80af5bd3ac5503c4c4653db009239e596ee))
+
 #### 0.18.13 (2020-05-25)
 
 ##### Refactors
