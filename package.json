@@ -16,6 +16,7 @@
   ],
   "main": "index.js",
   "scripts": {
+    "pretest": "npm run format",
     "test": "NODE_ENV=test KUE_CONCURRENCY=1 KUE_TIMEOUT=0 grunt test",
     "test:unit": "NODE_ENV=test KUE_CONCURRENCY=1 KUE_TIMEOUT=0 grunt unit",
     "test:integration": "NODE_ENV=test KUE_CONCURRENCY=1 KUE_TIMEOUT=0 grunt integration",
