@@ -11,6 +11,7 @@ const messageRouter = require('./lib/message.http.router');
 const Campaign = require('./lib/campaign.model');
 const campaignRouter = require('./lib/campaign.http.router');
 const smssyncRouterFactory = require('./lib/smssync.http.router.factory');
+const shortcuts = require('./lib/shortcuts');
 
 /**
  * @module postman
@@ -77,6 +78,11 @@ postman.start = worker.start;
 
 /* export common constants */
 _.forEach(common, (value, key) => {
+	postman[key] = value;
+});
+
+/* export common shortcut */
+_.forEach(shortcuts, (value, key) => {
 	postman[key] = value;
 });
 
