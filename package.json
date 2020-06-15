@@ -57,7 +57,8 @@
     "mongoose": ">=5.9.18",
     "prettier": "^2.0.5",
     "shelljs": "^0.8.4",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "websocket-extensions": ">=0.1.4"
   },
   "peerDependencies": {
     "mongoose": ">=5.9.18"
