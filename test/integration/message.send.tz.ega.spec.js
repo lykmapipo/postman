@@ -2,7 +2,7 @@
 
 /* dependencies */
 const { clear, expect } = require('@lykmapipo/mongoose-test-helpers');
-const { Message } = require('../..');
+const { Message, sendSMS } = require('../..');
 
 describe('tz ega transport', () => {
   before((done) => clear(done));
@@ -17,6 +17,26 @@ describe('tz ega transport', () => {
       message.transport = 'tz-ega-sms';
 
       message.send((error, sent) => {
+        //assert results
+        expect(error).to.not.exist;
+        expect(sent).to.exist;
+        expect(sent._id).to.exist;
+        expect(sent.transport).to.be.equal('tz-ega-sms');
+        expect(sent.sentAt).to.exist;
+        expect(sent.deliveredAt).to.exist;
+        expect(sent.failedAt).to.not.exist;
+        expect(sent.result).to.exist;
+        expect(sent.result.success).to.exist;
+        expect(sent.result.success).to.be.true;
+        done(error, sent);
+      });
+    });
+
+    it('should be able to send using shortcut', (done) => {
+      const message = Message.fakeExcept('sentAt', 'failedAt', 'deliveredAt');
+      message.transport = 'tz-ega-sms';
+
+      sendSMS(message, (error, sent) => {
         //assert results
         expect(error).to.not.exist;
         expect(sent).to.exist;
