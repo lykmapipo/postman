@@ -1,3 +1,19 @@
+#### 0.19.0 (2020-06-15)
+
+##### Chores
+
+* **deps:**
+  *  force latest version & audit fix ([25a9861a](https://github.com/lykmapipo/postman/commit/25a9861a6847abe14b77764becf808232c42fb66))
+  *  force latest version ([aa49cbb0](https://github.com/lykmapipo/postman/commit/aa49cbb0e95e21b977cb704dbdb7d8c8532ed217))
+
+##### New Features
+
+* **shortcuts:**
+  *  add send sms ([cac2329b](https://github.com/lykmapipo/postman/commit/cac2329bd5f25392ae71316e9b79ecb7a3120722))
+  *  add send push ([0b2251ce](https://github.com/lykmapipo/postman/commit/0b2251ce964544ce407d2dae0d05aeb0de496abf))
+  *  add send email ([e9116903](https://github.com/lykmapipo/postman/commit/e911690311f2bb0673529c9dd121ca687dd61864))
+  *  add send campaign ([2ee95b94](https://github.com/lykmapipo/postman/commit/2ee95b94b27df2370ad9417f589744edd12eb964))
+
 #### 0.18.14 (2020-06-11)
 
 ##### Chores
