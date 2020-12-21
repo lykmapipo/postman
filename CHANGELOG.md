@@ -1,3 +1,11 @@
+#### 0.19.5 (2020-12-21)
+
+##### Chores
+
+* **deps:**
+  *  force latest version & audit fix ([7f03dc21](https://github.com/lykmapipo/postman/commit/7f03dc210bb1d19fb85d545a710229052b7089e6))
+  *  bump ini from 1.3.5 to 1.3.7 ([7edd9822](https://github.com/lykmapipo/postman/commit/7edd9822150effc1c3176ba58ffda63255470263))
+
 #### 0.19.4 (2020-09-16)
 
 ##### Chores
